@@ -36,7 +36,7 @@
 | 第 20 章 | [序列化与配置](./rust20-serde-config) | `serde`、`serde_json`、TOML、环境变量、配置分层 | `src/rust20_serde/` |
 | 第 21 章 | [命令行工具](./rust21-cli) | `env::args`、`clap`、退出码、stdout/stderr 分流、`tracing` 日志 | `src/rust21_cli/` |
 | 第 22 章 | [网络与 HTTP](./rust22-network-http) | TCP 字节流、`reqwest`、超时与重试、并发与 async 客户端 | `src/rust22_network/` |
-| 第 23 章 | 测试进阶与基准 | 单元 / 集成 / 文档测试、断言与 mock、`criterion` 基准 | 规划中 |
+| 第 23 章 | [测试进阶与基准](./rust23-testing-bench) | 测试分层、共享夹具、依赖注入、`criterion` 基准与结果解读 | `src/rust23_testing/`、`tests/`、`benches/` |
 | 第 24 章 | Cargo 深入与发布 | features、workspace、依赖管理、交叉编译、发布 crate 与二进制 | 规划中 |
 | 第 25 章 | unsafe 与 FFI | 裸指针、`unsafe` 块与安全抽象、`extern "C"`、bindgen 概览 | 规划中 |
 | 第 26 章 | 综合实战项目 | 写一个完整的 CLI 工具，把前面所有章节串起来 | 规划中 |

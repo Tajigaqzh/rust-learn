@@ -39,6 +39,7 @@ export default defineConfig({
           { text: '第 20 章 · 序列化与配置', link: '/guide/rust20-serde-config' },
           { text: '第 21 章 · 命令行工具', link: '/guide/rust21-cli' },
           { text: '第 22 章 · 网络与 HTTP', link: '/guide/rust22-network-http' },
+          { text: '第 23 章 · 测试进阶与基准', link: '/guide/rust23-testing-bench' },
         ],
       },
     ],
@@ -93,7 +94,7 @@ export default defineConfig({
       {
         text: '工程与发布',
         items: [
-          { text: '第 23 章 · 测试进阶与基准（规划中）' },
+          { text: '第 23 章 · 测试进阶与基准', link: '/guide/rust23-testing-bench' },
           { text: '第 24 章 · Cargo 深入与发布（规划中）' },
           { text: '第 25 章 · unsafe 与 FFI（规划中）' },
           { text: '第 26 章 · 综合实战项目（规划中）' },

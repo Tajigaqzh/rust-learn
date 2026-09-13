@@ -16,3 +16,13 @@ tracing = "0.1"
 tracing-subscriber = { version = "0.3", default-features = false, features = ["fmt", "std", "ansi"] }
 unicode-segmentation = "1"
 walkdir = "2"
+
+[dev-dependencies]
+criterion = "0.8"
+# 把 criterion 传递依赖里的 zerocopy 钉在一个确定存在的版本上，
+# 这样离线环境（以及锁定依赖的 CI）也能稳定复现构建。
+zerocopy = "=0.8.55"
+
+[[bench]]
+name = "benchmarks"
+harness = false

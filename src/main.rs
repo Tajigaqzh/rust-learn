@@ -20,6 +20,7 @@ mod rust19_files_io;
 mod rust20_serde;
 mod rust21_cli;
 mod rust22_network;
+mod rust23_testing;
 
 use rust01_print::print_demo;
 use rust02_variables::variables_demo;
@@ -43,6 +44,7 @@ use rust19_files_io::files_io_demo;
 use rust20_serde::serde_demo;
 use rust21_cli::cli_demo;
 use rust22_network::network_demo;
+use rust23_testing::testing_demo;
 
 fn main() {
     println!("Hello, world!");
@@ -90,4 +92,6 @@ fn main() {
     cli_demo();
 
     network_demo();
+
+    testing_demo();
 }
