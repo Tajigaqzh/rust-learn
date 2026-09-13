@@ -8,6 +8,7 @@ mod rust07_collections;
 mod rust08_errors;
 mod rust09_generics_traits;
 mod rust10_lifetimes;
+mod rust11_closures_iterators;
 
 use rust01_print::print_demo;
 use rust02_variables::variables_demo;
@@ -19,6 +20,7 @@ use rust07_collections::collections_demo;
 use rust08_errors::errors_demo;
 use rust09_generics_traits::generics_traits_demo;
 use rust10_lifetimes::lifetimes_demo;
+use rust11_closures_iterators::closures_iterators_demo;
 
 fn main() {
     println!("Hello, world!");
@@ -42,4 +44,6 @@ fn main() {
     generics_traits_demo();
 
     lifetimes_demo();
+
+    closures_iterators_demo();
 }
