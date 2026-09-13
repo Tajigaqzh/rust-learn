@@ -6,6 +6,10 @@ export default defineConfig({
   description: '按章节由浅入深地学 Rust，配套 rust-learn 练习工程',
   cleanUrls: true,
 
+  // 部署在 GitHub Pages 的项目子路径下，必须和仓库名一致；
+  // 换成用户名.github.io 这类用户主页仓库时要改成 '/'
+  base: '/rust-learn/',
+
   themeConfig: {
     nav: [
       { text: '首页', link: '/' },
