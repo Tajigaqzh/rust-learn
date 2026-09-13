@@ -23,6 +23,9 @@ mod rust22_network;
 mod rust23_testing;
 mod rust24_cargo;
 mod rust25_unsafe_ffi;
+mod rust26_database;
+mod rust27_app;
+mod rust28_ops;
 
 use rust01_print::print_demo;
 use rust02_variables::variables_demo;
@@ -49,6 +52,9 @@ use rust22_network::network_demo;
 use rust23_testing::testing_demo;
 use rust24_cargo::cargo_demo;
 use rust25_unsafe_ffi::unsafe_ffi_demo;
+use rust26_database::database_demo;
+use rust27_app::task_app_demo;
+use rust28_ops::ops_demo;
 
 fn main() {
     println!("Hello, world!");
@@ -102,4 +108,7 @@ fn main() {
     cargo_demo();
 
     unsafe_ffi_demo();
+    database_demo();
+    task_app_demo();
+    ops_demo();
 }

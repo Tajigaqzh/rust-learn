@@ -23,6 +23,7 @@ tracing = "0.1"
 tracing-subscriber = { version = "0.3", default-features = false, features = ["fmt", "std", "ansi"] }
 unicode-segmentation = "1"
 walkdir = "2"
+rusqlite = { version = "0.32", features = ["bundled"] }
 
 [dev-dependencies]
 criterion = "0.8"

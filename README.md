@@ -62,7 +62,9 @@ pnpm docs:preview    # 预览构建结果
 | 第 23 章 | 测试进阶与基准 | [rust23-testing-bench](docs/guide/rust23-testing-bench.md) | `src/rust23_testing/`、`tests/`、`benches/` |
 | 第 24 章 | Cargo 深入与发布 | [rust24-cargo](docs/guide/rust24-cargo.md) | `src/rust24_cargo/` |
 | 第 25 章 | unsafe 与 FFI | [rust25-unsafe-ffi](docs/guide/rust25-unsafe-ffi.md) | `src/rust25_unsafe_ffi/` |
-| 第 26 章 | 综合实战项目 | 规划中 | 规划中 |
+| 第 26 章 | 数据库操作 | [rust26-database](docs/guide/rust26-database.md) | `src/rust26_database/` |
+| 第 27 章 | 综合实战项目 | [rust27-app](docs/guide/rust27-app.md) | `src/rust27_app.rs` |
+| 第 28 章 | 部署、监控与性能优化 | [rust28-ops](docs/guide/rust28-ops.md) | `src/rust28_ops.rs` |
 
 完整路线见[学习路线与章节规划](docs/guide/index.md)。
 

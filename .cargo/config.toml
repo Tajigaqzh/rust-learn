@@ -1,0 +1,10 @@
+# 项目级 Cargo 镜像配置：国内网络环境优先使用 rsproxy 的 sparse 索引。
+# 如需临时切回官方源，可通过 CARGO_REGISTRIES_CRATES_IO_INDEX 覆盖。
+[source.crates-io]
+replace-with = "rsproxy"
+
+[source.rsproxy]
+registry = "sparse+https://rsproxy.cn/index/"
+
+[registries.rsproxy]
+index = "sparse+https://rsproxy.cn/index/"
