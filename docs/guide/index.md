@@ -21,8 +21,8 @@
 | 第 5 章 | [所有权与借用](./rust05-ownership) | 移动、克隆、借用规则、切片、`String` 与 `&str` 的取舍 | `src/rust05_ownership/` |
 | 第 6 章 | [结构体与枚举](./rust06-structs-enums) | `struct`、`enum`、`impl`、`match` 与 `Option` | `src/rust06_structs_enums/` |
 | 第 7 章 | [常用集合](./rust07-collections) | `Vec`、`String`、`HashMap` 的常用操作与坑 | `src/rust07_collections/` |
-| 第 8 章 | 错误处理 | `Option` / `Result`、`?` 运算符、自定义错误、`panic!` 的边界 | 规划中 |
-| 第 9 章 | 泛型与 trait | 泛型函数、trait 定义与实现、trait bound、trait 对象 | 规划中 |
+| 第 8 章 | [错误处理](./rust08-errors) | `Option` / `Result`、`?` 运算符、自定义错误、`panic!` 的边界 | `src/rust08_errors/` |
+| 第 9 章 | [泛型与 trait](./rust09-generics-traits) | 泛型函数、trait 定义与实现、trait bound、trait 对象、关联类型 | `src/rust09_generics_traits/` |
 | 第 10 章 | 生命周期 | 借用检查器如何推理、显式标注、`'static` 的真实含义 | 规划中 |
 | 第 11 章 | 闭包与迭代器 | 三种闭包 trait、迭代器适配器、惰性求值 | 规划中 |
 | 第 12 章 | 智能指针 | `Box`、`Rc`/`Arc`、`RefCell`、`Deref` 与内部可变性 | 规划中 |
