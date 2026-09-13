@@ -29,6 +29,7 @@ export default defineConfig({
           { text: '第 10 章 · 生命周期', link: '/guide/rust10-lifetimes' },
           { text: '第 11 章 · 闭包与迭代器', link: '/guide/rust11-closures-iterators' },
           { text: '第 12 章 · 智能指针', link: '/guide/rust12-smart-pointers' },
+          { text: '第 13 章 · 并发编程', link: '/guide/rust13-concurrency' },
         ],
       },
     ],
@@ -63,7 +64,7 @@ export default defineConfig({
       {
         text: '实战篇',
         items: [
-          { text: '第 13 章 · 并发编程（规划中）' },
+          { text: '第 13 章 · 并发编程', link: '/guide/rust13-concurrency' },
           { text: '第 14 章 · 模块、包与测试（规划中）' },
           { text: '第 15 章 · 宏（规划中）' },
           { text: '第 16 章 · async/await（规划中）' },

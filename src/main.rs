@@ -10,6 +10,7 @@ mod rust09_generics_traits;
 mod rust10_lifetimes;
 mod rust11_closures_iterators;
 mod rust12_smart_pointers;
+mod rust13_concurrency;
 
 use rust01_print::print_demo;
 use rust02_variables::variables_demo;
@@ -23,6 +24,7 @@ use rust09_generics_traits::generics_traits_demo;
 use rust10_lifetimes::lifetimes_demo;
 use rust11_closures_iterators::closures_iterators_demo;
 use rust12_smart_pointers::smart_pointers_demo;
+use rust13_concurrency::concurrency_demo;
 
 fn main() {
     println!("Hello, world!");
@@ -50,4 +52,6 @@ fn main() {
     closures_iterators_demo();
 
     smart_pointers_demo();
+
+    concurrency_demo();
 }
