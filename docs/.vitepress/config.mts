@@ -31,6 +31,7 @@ export default defineConfig({
           { text: '第 12 章 · 智能指针', link: '/guide/rust12-smart-pointers' },
           { text: '第 13 章 · 并发编程', link: '/guide/rust13-concurrency' },
           { text: '第 14 章 · 模块、包与测试', link: '/guide/rust14-modules-tests' },
+          { text: '第 15 章 · 宏', link: '/guide/rust15-macros' },
         ],
       },
     ],
@@ -67,7 +68,7 @@ export default defineConfig({
         items: [
           { text: '第 13 章 · 并发编程', link: '/guide/rust13-concurrency' },
           { text: '第 14 章 · 模块、包与测试', link: '/guide/rust14-modules-tests' },
-          { text: '第 15 章 · 宏（规划中）' },
+          { text: '第 15 章 · 宏', link: '/guide/rust15-macros' },
           { text: '第 16 章 · async/await（规划中）' },
         ],
       },

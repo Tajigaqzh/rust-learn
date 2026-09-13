@@ -51,7 +51,8 @@ pnpm docs:preview    # 预览构建结果
 | 第 12 章 | 智能指针 | [rust12-smart-pointers](docs/guide/rust12-smart-pointers.md) | `src/rust12_smart_pointers/` |
 | 第 13 章 | 并发编程 | [rust13-concurrency](docs/guide/rust13-concurrency.md) | `src/rust13_concurrency/` |
 | 第 14 章 | 模块、包与测试 | [rust14-modules-tests](docs/guide/rust14-modules-tests.md) | `src/rust14_modules_tests/`、`tests/` |
-| 第 15–16 章 | 宏、async/await | 规划中 | 规划中 |
+| 第 15 章 | 宏 | [rust15-macros](docs/guide/rust15-macros.md) | `src/rust15_macros/` |
+| 第 16 章 | async/await | 规划中 | 规划中 |
 | 第 17–26 章 | 日期与时间、文本与正则、文件 IO、序列化与配置、命令行工具、网络、测试进阶、Cargo 发布、unsafe 与 FFI、实战项目 | 规划中 | 规划中 |
 
 完整路线见[学习路线与章节规划](docs/guide/index.md)。
