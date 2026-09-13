@@ -30,7 +30,7 @@
 | 第 14 章 | [模块、包与测试](./rust14-modules-tests) | `mod`、`pub`、工作空间、单元测试、集成测试与文档测试 | `src/rust14_modules_tests/`、`tests/` |
 | 第 15 章 | [宏](./rust15-macros) | `macro_rules!`、片段说明符、重复匹配、卫生性、过程宏概览 | `src/rust15_macros/` |
 | 第 16 章 | [async/await](./rust16-async) | `Future` 模型、`.await`、手写最小运行时、阻塞陷阱与 tokio 概览 | `src/rust16_async/` |
-| 第 17 章 | 日期与时间 | `SystemTime` / `Instant` / `Duration`、时间戳与格式化、`chrono` / `time`、时区陷阱 | 规划中 |
+| 第 17 章 | [日期与时间](./rust17-datetime) | `SystemTime` / `Instant` / `Duration`、时间戳与格式化、`chrono`、时区陷阱 | `src/rust17_datetime/` |
 | 第 18 章 | 文本处理与正则 | Unicode 与 UTF-8 进阶、字符串性能与 `Cow`、`regex` crate、文本清洗 | 规划中 |
 | 第 19 章 | 文件、路径与 IO | `Path` / `PathBuf`、读写文件、`BufReader` / `BufWriter`、stdin/stdout、遍历目录 | 规划中 |
 | 第 20 章 | 序列化与配置 | `serde`、`serde_json`、TOML、环境变量、配置合并 | 规划中 |

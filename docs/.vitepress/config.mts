@@ -33,6 +33,7 @@ export default defineConfig({
           { text: '第 14 章 · 模块、包与测试', link: '/guide/rust14-modules-tests' },
           { text: '第 15 章 · 宏', link: '/guide/rust15-macros' },
           { text: '第 16 章 · async/await', link: '/guide/rust16-async' },
+          { text: '第 17 章 · 日期与时间', link: '/guide/rust17-datetime' },
         ],
       },
     ],
@@ -76,7 +77,7 @@ export default defineConfig({
       {
         text: '标准库与生态',
         items: [
-          { text: '第 17 章 · 日期与时间（规划中）' },
+          { text: '第 17 章 · 日期与时间', link: '/guide/rust17-datetime' },
           { text: '第 18 章 · 文本处理与正则（规划中）' },
           { text: '第 19 章 · 文件、路径与 IO（规划中）' },
           { text: '第 20 章 · 序列化与配置（规划中）' },
