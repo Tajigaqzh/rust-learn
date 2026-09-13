@@ -28,6 +28,7 @@ export default defineConfig({
           { text: '第 9 章 · 泛型与 trait', link: '/guide/rust09-generics-traits' },
           { text: '第 10 章 · 生命周期', link: '/guide/rust10-lifetimes' },
           { text: '第 11 章 · 闭包与迭代器', link: '/guide/rust11-closures-iterators' },
+          { text: '第 12 章 · 智能指针', link: '/guide/rust12-smart-pointers' },
         ],
       },
     ],
@@ -56,7 +57,7 @@ export default defineConfig({
           { text: '第 9 章 · 泛型与 trait', link: '/guide/rust09-generics-traits' },
           { text: '第 10 章 · 生命周期', link: '/guide/rust10-lifetimes' },
           { text: '第 11 章 · 闭包与迭代器', link: '/guide/rust11-closures-iterators' },
-          { text: '第 12 章 · 智能指针（规划中）' },
+          { text: '第 12 章 · 智能指针', link: '/guide/rust12-smart-pointers' },
         ],
       },
       {

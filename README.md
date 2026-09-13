@@ -48,7 +48,8 @@ pnpm docs:preview    # 预览构建结果
 | 第 9 章 | 泛型与 trait | [rust09-generics-traits](docs/guide/rust09-generics-traits.md) | `src/rust09_generics_traits/` |
 | 第 10 章 | 生命周期 | [rust10-lifetimes](docs/guide/rust10-lifetimes.md) | `src/rust10_lifetimes/` |
 | 第 11 章 | 闭包与迭代器 | [rust11-closures-iterators](docs/guide/rust11-closures-iterators.md) | `src/rust11_closures_iterators/` |
-| 第 12–16 章 | 智能指针、并发、测试、宏、async/await | 规划中 | 规划中 |
+| 第 12 章 | 智能指针 | [rust12-smart-pointers](docs/guide/rust12-smart-pointers.md) | `src/rust12_smart_pointers/` |
+| 第 13–16 章 | 并发、测试、宏、async/await | 规划中 | 规划中 |
 | 第 17–26 章 | 日期与时间、文本与正则、文件 IO、序列化与配置、命令行工具、网络、测试进阶、Cargo 发布、unsafe 与 FFI、实战项目 | 规划中 | 规划中 |
 
 完整路线见[学习路线与章节规划](docs/guide/index.md)。

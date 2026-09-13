@@ -25,7 +25,7 @@
 | 第 9 章 | [泛型与 trait](./rust09-generics-traits) | 泛型函数、trait 定义与实现、trait bound、trait 对象、关联类型 | `src/rust09_generics_traits/` |
 | 第 10 章 | [生命周期](./rust10-lifetimes) | 借用检查器如何推理、显式标注、`'static` 的真实含义 | `src/rust10_lifetimes/` |
 | 第 11 章 | [闭包与迭代器](./rust11-closures-iterators) | 三种闭包 trait、迭代器适配器、惰性求值、自定义迭代器 | `src/rust11_closures_iterators/` |
-| 第 12 章 | 智能指针 | `Box`、`Rc`/`Arc`、`RefCell`、`Deref` 与内部可变性 | 规划中 |
+| 第 12 章 | [智能指针](./rust12-smart-pointers) | `Box`、`Rc`/`Arc`、`RefCell`、`Weak`、`Deref` 与内部可变性 | `src/rust12_smart_pointers/` |
 | 第 13 章 | 并发编程 | `thread::spawn`、`mpsc` 通道、`Mutex` 与 `Arc`、`Send` 与 `Sync` | 规划中 |
 | 第 14 章 | 模块、包与测试 | `mod`、`pub`、工作空间、单元测试与集成测试 | 规划中 |
 | 第 15 章 | 宏 | `macro_rules!`、重复匹配、过程宏能做什么 | 规划中 |
