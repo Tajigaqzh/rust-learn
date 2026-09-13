@@ -35,6 +35,7 @@ export default defineConfig({
           { text: '第 16 章 · async/await', link: '/guide/rust16-async' },
           { text: '第 17 章 · 日期与时间', link: '/guide/rust17-datetime' },
           { text: '第 18 章 · 文本处理与正则', link: '/guide/rust18-text-regex' },
+          { text: '第 19 章 · 文件、路径与 IO', link: '/guide/rust19-files-io' },
         ],
       },
     ],
@@ -80,7 +81,7 @@ export default defineConfig({
         items: [
           { text: '第 17 章 · 日期与时间', link: '/guide/rust17-datetime' },
           { text: '第 18 章 · 文本处理与正则', link: '/guide/rust18-text-regex' },
-          { text: '第 19 章 · 文件、路径与 IO（规划中）' },
+          { text: '第 19 章 · 文件、路径与 IO', link: '/guide/rust19-files-io' },
           { text: '第 20 章 · 序列化与配置（规划中）' },
           { text: '第 21 章 · 命令行工具（规划中）' },
           { text: '第 22 章 · 网络与 HTTP（规划中）' },

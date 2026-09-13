@@ -55,7 +55,8 @@ pnpm docs:preview    # 预览构建结果
 | 第 16 章 | async/await | [rust16-async](docs/guide/rust16-async.md) | `src/rust16_async/` |
 | 第 17 章 | 日期与时间 | [rust17-datetime](docs/guide/rust17-datetime.md) | `src/rust17_datetime/` |
 | 第 18 章 | 文本处理与正则 | [rust18-text-regex](docs/guide/rust18-text-regex.md) | `src/rust18_text/` |
-| 第 19–26 章 | 文件 IO、序列化与配置、命令行工具、网络、测试进阶、Cargo 发布、unsafe 与 FFI、实战项目 | 规划中 | 规划中 |
+| 第 19 章 | 文件、路径与 IO | [rust19-files-io](docs/guide/rust19-files-io.md) | `src/rust19_files_io/` |
+| 第 20–26 章 | 序列化与配置、命令行工具、网络、测试进阶、Cargo 发布、unsafe 与 FFI、实战项目 | 规划中 | 规划中 |
 
 完整路线见[学习路线与章节规划](docs/guide/index.md)。
 
