@@ -23,7 +23,7 @@
 | 第 7 章 | [常用集合](./rust07-collections) | `Vec`、`String`、`HashMap` 的常用操作与坑 | `src/rust07_collections/` |
 | 第 8 章 | [错误处理](./rust08-errors) | `Option` / `Result`、`?` 运算符、自定义错误、`panic!` 的边界 | `src/rust08_errors/` |
 | 第 9 章 | [泛型与 trait](./rust09-generics-traits) | 泛型函数、trait 定义与实现、trait bound、trait 对象、关联类型 | `src/rust09_generics_traits/` |
-| 第 10 章 | 生命周期 | 借用检查器如何推理、显式标注、`'static` 的真实含义 | 规划中 |
+| 第 10 章 | [生命周期](./rust10-lifetimes) | 借用检查器如何推理、显式标注、`'static` 的真实含义 | `src/rust10_lifetimes/` |
 | 第 11 章 | 闭包与迭代器 | 三种闭包 trait、迭代器适配器、惰性求值 | 规划中 |
 | 第 12 章 | 智能指针 | `Box`、`Rc`/`Arc`、`RefCell`、`Deref` 与内部可变性 | 规划中 |
 | 第 13 章 | 并发编程 | `thread::spawn`、`mpsc` 通道、`Mutex` 与 `Arc`、`Send` 与 `Sync` | 规划中 |
