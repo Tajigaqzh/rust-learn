@@ -13,6 +13,7 @@ mod rust12_smart_pointers;
 mod rust13_concurrency;
 mod rust14_modules_tests;
 mod rust15_macros;
+mod rust16_async;
 
 use rust01_print::print_demo;
 use rust02_variables::variables_demo;
@@ -29,6 +30,7 @@ use rust12_smart_pointers::smart_pointers_demo;
 use rust13_concurrency::concurrency_demo;
 use rust14_modules_tests::modules_tests_demo;
 use rust15_macros::macros_demo;
+use rust16_async::async_demo;
 
 fn main() {
     println!("Hello, world!");
@@ -62,4 +64,6 @@ fn main() {
     modules_tests_demo();
 
     macros_demo();
+
+    async_demo();
 }
