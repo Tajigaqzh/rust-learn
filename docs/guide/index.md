@@ -33,7 +33,7 @@
 | 第 17 章 | [日期与时间](./rust17-datetime) | `SystemTime` / `Instant` / `Duration`、时间戳与格式化、`chrono`、时区陷阱 | `src/rust17_datetime/` |
 | 第 18 章 | [文本处理与正则](./rust18-text-regex) | 字符/字节/字素、Unicode 陷阱、`Cow`、`regex` 匹配与提取 | `src/rust18_text/` |
 | 第 19 章 | [文件、路径与 IO](./rust19-files-io) | `Path` / `PathBuf`、读写文件、`BufReader` / `BufWriter`、stdin/stdout、遍历目录 | `src/rust19_files_io/` |
-| 第 20 章 | 序列化与配置 | `serde`、`serde_json`、TOML、环境变量、配置合并 | 规划中 |
+| 第 20 章 | [序列化与配置](./rust20-serde-config) | `serde`、`serde_json`、TOML、环境变量、配置分层 | `src/rust20_serde/` |
 | 第 21 章 | 命令行工具 | `env::args`、`clap`、退出码、错误输出、日志（`tracing` / `env_logger`） | 规划中 |
 | 第 22 章 | 网络与 HTTP | `TcpStream`、`reqwest`、超时与重试、和 async 的配合 | 规划中 |
 | 第 23 章 | 测试进阶与基准 | 单元 / 集成 / 文档测试、断言与 mock、`criterion` 基准 | 规划中 |
