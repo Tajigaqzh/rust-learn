@@ -1,0 +1,4 @@
+# pnpm 12 的设置在 pnpm-workspace.yaml 里（package.json 的 pnpm 字段已不再读取）。
+# esbuild 的安装脚本要显式放行，否则 pnpm install 会以 ERR_PNPM_IGNORED_BUILDS 退出。
+allowBuilds:
+  esbuild: true
