@@ -41,7 +41,7 @@ pnpm docs:preview    # 预览构建结果
 | 第 2 章 | 变量与基本类型 | [rust02-variables](docs/guide/rust02-variables.md) | `src/rust02_variables/` |
 | 第 3 章 | 函数与表达式 | [rust03-functions](docs/guide/rust03-functions.md) | `src/rust03_functions/` |
 | 第 4 章 | 控制流 | [rust04-control-flow](docs/guide/rust04-control-flow.md) | `src/rust04_control_flow/` |
-| 第 5 章 | 所有权与借用 | 编写中 | 编写中 |
+| 第 5 章 | 所有权与借用 | [rust05-ownership](docs/guide/rust05-ownership.md) | `src/rust05_ownership/` |
 | 第 6 章起 | 结构体、集合、错误处理…… | 规划中 | 规划中 |
 
 完整路线见[学习路线与章节规划](docs/guide/index.md)。
