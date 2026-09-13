@@ -27,7 +27,7 @@
 | 第 11 章 | [闭包与迭代器](./rust11-closures-iterators) | 三种闭包 trait、迭代器适配器、惰性求值、自定义迭代器 | `src/rust11_closures_iterators/` |
 | 第 12 章 | [智能指针](./rust12-smart-pointers) | `Box`、`Rc`/`Arc`、`RefCell`、`Weak`、`Deref` 与内部可变性 | `src/rust12_smart_pointers/` |
 | 第 13 章 | [并发编程](./rust13-concurrency) | `thread::spawn`、`mpsc` 通道、`Mutex` 与 `Arc`、`Send` 与 `Sync` | `src/rust13_concurrency/` |
-| 第 14 章 | 模块、包与测试 | `mod`、`pub`、工作空间、单元测试与集成测试 | 规划中 |
+| 第 14 章 | [模块、包与测试](./rust14-modules-tests) | `mod`、`pub`、工作空间、单元测试、集成测试与文档测试 | `src/rust14_modules_tests/`、`tests/` |
 | 第 15 章 | 宏 | `macro_rules!`、重复匹配、过程宏能做什么 | 规划中 |
 | 第 16 章 | async/await | `Future` 模型、`.await`、运行时与阻塞陷阱 | 规划中 |
 | 第 17 章 | 日期与时间 | `SystemTime` / `Instant` / `Duration`、时间戳与格式化、`chrono` / `time`、时区陷阱 | 规划中 |
