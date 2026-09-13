@@ -19,7 +19,7 @@
 | 第 3 章 | [函数与表达式](./rust03-functions) | 函数签名、尾表达式、表达式与语句的区别、提前返回、函数指针、`const fn`、报错读法 | `src/rust03_functions/` |
 | 第 4 章 | [控制流](./rust04-control-flow) | `if` / `loop` / `while` / `for`、带返回值的 `loop`、循环标签 | `src/rust04_control_flow/` |
 | 第 5 章 | [所有权与借用](./rust05-ownership) | 移动、克隆、借用规则、切片、`String` 与 `&str` 的取舍 | `src/rust05_ownership/` |
-| 第 6 章 | 结构体与枚举 | `struct`、`enum`、`impl`、`match` 与 `Option` | 规划中 |
+| 第 6 章 | [结构体与枚举](./rust06-structs-enums) | `struct`、`enum`、`impl`、`match` 与 `Option` | `src/rust06_structs_enums/` |
 | 第 7 章 | 常用集合 | `Vec`、`String`、`HashMap` 的常用操作与坑 | 规划中 |
 | 第 8 章 | 错误处理 | `Option` / `Result`、`?` 运算符、自定义错误、`panic!` 的边界 | 规划中 |
 | 第 9 章 | 泛型与 trait | 泛型函数、trait 定义与实现、trait bound、trait 对象 | 规划中 |

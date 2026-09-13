@@ -22,6 +22,7 @@ export default defineConfig({
           { text: '第 3 章 · 函数与表达式', link: '/guide/rust03-functions' },
           { text: '第 4 章 · 控制流', link: '/guide/rust04-control-flow' },
           { text: '第 5 章 · 所有权与借用', link: '/guide/rust05-ownership' },
+          { text: '第 6 章 · 结构体与枚举', link: '/guide/rust06-structs-enums' },
         ],
       },
     ],
@@ -39,7 +40,7 @@ export default defineConfig({
           { text: '第 3 章 · 函数与表达式', link: '/guide/rust03-functions' },
           { text: '第 4 章 · 控制流', link: '/guide/rust04-control-flow' },
           { text: '第 5 章 · 所有权与借用', link: '/guide/rust05-ownership' },
-          { text: '第 6 章 · 结构体与枚举（规划中）' },
+          { text: '第 6 章 · 结构体与枚举', link: '/guide/rust06-structs-enums' },
         ],
       },
       {
