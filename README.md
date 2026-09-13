@@ -57,7 +57,8 @@ pnpm docs:preview    # 预览构建结果
 | 第 18 章 | 文本处理与正则 | [rust18-text-regex](docs/guide/rust18-text-regex.md) | `src/rust18_text/` |
 | 第 19 章 | 文件、路径与 IO | [rust19-files-io](docs/guide/rust19-files-io.md) | `src/rust19_files_io/` |
 | 第 20 章 | 序列化与配置 | [rust20-serde-config](docs/guide/rust20-serde-config.md) | `src/rust20_serde/` |
-| 第 21–26 章 | 命令行工具、网络、测试进阶、Cargo 发布、unsafe 与 FFI、实战项目 | 规划中 | 规划中 |
+| 第 21 章 | 命令行工具 | [rust21-cli](docs/guide/rust21-cli.md) | `src/rust21_cli/` |
+| 第 22–26 章 | 网络、测试进阶、Cargo 发布、unsafe 与 FFI、实战项目 | 规划中 | 规划中 |
 
 完整路线见[学习路线与章节规划](docs/guide/index.md)。
 
