@@ -54,4 +54,4 @@ pnpm docs:preview    # 预览构建结果
 
 因为是部署在项目子路径下，[docs/.vitepress/config.mts](docs/.vitepress/config.mts) 里设置了 `base: '/rust-learn/'`。以后如果改了仓库名、或者换成 `用户名.github.io` 这种用户主页仓库，记得把这里同步改掉（用户主页仓库要写成 `base: '/'`）。
 
-首次部署前，需要在仓库的 Settings → Pages 里把 Source 选成 **GitHub Actions**（工作流里的 `configure-pages` 也带了自动启用，如果它没有权限，就需要手动点一下）。
+第一次部署前要手动开启一次 Pages：仓库 **Settings → Pages → Build and deployment → Source** 选 **GitHub Actions**。这一步必须手动做——工作流里的 `GITHUB_TOKEN` 没有创建 Pages 站点的权限，所以 `configure-pages` 的自动启用（`enablement`）会报 `Resource not accessible by integration`。开启之后再跑一次工作流即可。
