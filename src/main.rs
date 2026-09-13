@@ -15,6 +15,7 @@ mod rust14_modules_tests;
 mod rust15_macros;
 mod rust16_async;
 mod rust17_datetime;
+mod rust18_text;
 
 use rust01_print::print_demo;
 use rust02_variables::variables_demo;
@@ -33,6 +34,7 @@ use rust14_modules_tests::modules_tests_demo;
 use rust15_macros::macros_demo;
 use rust16_async::async_demo;
 use rust17_datetime::datetime_demo;
+use rust18_text::text_demo;
 
 fn main() {
     println!("Hello, world!");
@@ -70,4 +72,6 @@ fn main() {
     async_demo();
 
     datetime_demo();
+
+    text_demo();
 }

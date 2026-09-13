@@ -5,3 +5,5 @@ edition = "2024"
 
 [dependencies]
 chrono = "0.4"
+regex = "1"
+unicode-segmentation = "1"

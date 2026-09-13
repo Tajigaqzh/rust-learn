@@ -54,7 +54,8 @@ pnpm docs:preview    # 预览构建结果
 | 第 15 章 | 宏 | [rust15-macros](docs/guide/rust15-macros.md) | `src/rust15_macros/` |
 | 第 16 章 | async/await | [rust16-async](docs/guide/rust16-async.md) | `src/rust16_async/` |
 | 第 17 章 | 日期与时间 | [rust17-datetime](docs/guide/rust17-datetime.md) | `src/rust17_datetime/` |
-| 第 18–26 章 | 文本与正则、文件 IO、序列化与配置、命令行工具、网络、测试进阶、Cargo 发布、unsafe 与 FFI、实战项目 | 规划中 | 规划中 |
+| 第 18 章 | 文本处理与正则 | [rust18-text-regex](docs/guide/rust18-text-regex.md) | `src/rust18_text/` |
+| 第 19–26 章 | 文件 IO、序列化与配置、命令行工具、网络、测试进阶、Cargo 发布、unsafe 与 FFI、实战项目 | 规划中 | 规划中 |
 
 完整路线见[学习路线与章节规划](docs/guide/index.md)。
 
