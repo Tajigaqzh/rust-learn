@@ -20,7 +20,7 @@
 | 第 4 章 | [控制流](./rust04-control-flow) | `if` / `loop` / `while` / `for`、带返回值的 `loop`、循环标签 | `src/rust04_control_flow/` |
 | 第 5 章 | [所有权与借用](./rust05-ownership) | 移动、克隆、借用规则、切片、`String` 与 `&str` 的取舍 | `src/rust05_ownership/` |
 | 第 6 章 | [结构体与枚举](./rust06-structs-enums) | `struct`、`enum`、`impl`、`match` 与 `Option` | `src/rust06_structs_enums/` |
-| 第 7 章 | 常用集合 | `Vec`、`String`、`HashMap` 的常用操作与坑 | 规划中 |
+| 第 7 章 | [常用集合](./rust07-collections) | `Vec`、`String`、`HashMap` 的常用操作与坑 | `src/rust07_collections/` |
 | 第 8 章 | 错误处理 | `Option` / `Result`、`?` 运算符、自定义错误、`panic!` 的边界 | 规划中 |
 | 第 9 章 | 泛型与 trait | 泛型函数、trait 定义与实现、trait bound、trait 对象 | 规划中 |
 | 第 10 章 | 生命周期 | 借用检查器如何推理、显式标注、`'static` 的真实含义 | 规划中 |
@@ -30,6 +30,16 @@
 | 第 14 章 | 模块、包与测试 | `mod`、`pub`、工作空间、单元测试与集成测试 | 规划中 |
 | 第 15 章 | 宏 | `macro_rules!`、重复匹配、过程宏能做什么 | 规划中 |
 | 第 16 章 | async/await | `Future` 模型、`.await`、运行时与阻塞陷阱 | 规划中 |
+| 第 17 章 | 日期与时间 | `SystemTime` / `Instant` / `Duration`、时间戳与格式化、`chrono` / `time`、时区陷阱 | 规划中 |
+| 第 18 章 | 文本处理与正则 | Unicode 与 UTF-8 进阶、字符串性能与 `Cow`、`regex` crate、文本清洗 | 规划中 |
+| 第 19 章 | 文件、路径与 IO | `Path` / `PathBuf`、读写文件、`BufReader` / `BufWriter`、stdin/stdout、遍历目录 | 规划中 |
+| 第 20 章 | 序列化与配置 | `serde`、`serde_json`、TOML、环境变量、配置合并 | 规划中 |
+| 第 21 章 | 命令行工具 | `env::args`、`clap`、退出码、错误输出、日志（`tracing` / `env_logger`） | 规划中 |
+| 第 22 章 | 网络与 HTTP | `TcpStream`、`reqwest`、超时与重试、和 async 的配合 | 规划中 |
+| 第 23 章 | 测试进阶与基准 | 单元 / 集成 / 文档测试、断言与 mock、`criterion` 基准 | 规划中 |
+| 第 24 章 | Cargo 深入与发布 | features、workspace、依赖管理、交叉编译、发布 crate 与二进制 | 规划中 |
+| 第 25 章 | unsafe 与 FFI | 裸指针、`unsafe` 块与安全抽象、`extern "C"`、bindgen 概览 | 规划中 |
+| 第 26 章 | 综合实战项目 | 写一个完整的 CLI 工具，把前面所有章节串起来 | 规划中 |
 
 ## 本地跑文档站
 

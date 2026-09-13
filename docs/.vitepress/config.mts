@@ -23,6 +23,7 @@ export default defineConfig({
           { text: '第 4 章 · 控制流', link: '/guide/rust04-control-flow' },
           { text: '第 5 章 · 所有权与借用', link: '/guide/rust05-ownership' },
           { text: '第 6 章 · 结构体与枚举', link: '/guide/rust06-structs-enums' },
+          { text: '第 7 章 · 常用集合', link: '/guide/rust07-collections' },
         ],
       },
     ],
@@ -46,7 +47,7 @@ export default defineConfig({
       {
         text: '进阶篇',
         items: [
-          { text: '第 7 章 · 常用集合（规划中）' },
+          { text: '第 7 章 · 常用集合', link: '/guide/rust07-collections' },
           { text: '第 8 章 · 错误处理（规划中）' },
           { text: '第 9 章 · 泛型与 trait（规划中）' },
           { text: '第 10 章 · 生命周期（规划中）' },
@@ -61,6 +62,26 @@ export default defineConfig({
           { text: '第 14 章 · 模块、包与测试（规划中）' },
           { text: '第 15 章 · 宏（规划中）' },
           { text: '第 16 章 · async/await（规划中）' },
+        ],
+      },
+      {
+        text: '标准库与生态',
+        items: [
+          { text: '第 17 章 · 日期与时间（规划中）' },
+          { text: '第 18 章 · 文本处理与正则（规划中）' },
+          { text: '第 19 章 · 文件、路径与 IO（规划中）' },
+          { text: '第 20 章 · 序列化与配置（规划中）' },
+          { text: '第 21 章 · 命令行工具（规划中）' },
+          { text: '第 22 章 · 网络与 HTTP（规划中）' },
+        ],
+      },
+      {
+        text: '工程与发布',
+        items: [
+          { text: '第 23 章 · 测试进阶与基准（规划中）' },
+          { text: '第 24 章 · Cargo 深入与发布（规划中）' },
+          { text: '第 25 章 · unsafe 与 FFI（规划中）' },
+          { text: '第 26 章 · 综合实战项目（规划中）' },
         ],
       },
     ],
