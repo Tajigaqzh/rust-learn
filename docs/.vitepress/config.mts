@@ -38,6 +38,7 @@ export default defineConfig({
           { text: '第 19 章 · 文件、路径与 IO', link: '/guide/rust19-files-io' },
           { text: '第 20 章 · 序列化与配置', link: '/guide/rust20-serde-config' },
           { text: '第 21 章 · 命令行工具', link: '/guide/rust21-cli' },
+          { text: '第 22 章 · 网络与 HTTP', link: '/guide/rust22-network-http' },
         ],
       },
     ],
@@ -86,7 +87,7 @@ export default defineConfig({
           { text: '第 19 章 · 文件、路径与 IO', link: '/guide/rust19-files-io' },
           { text: '第 20 章 · 序列化与配置', link: '/guide/rust20-serde-config' },
           { text: '第 21 章 · 命令行工具', link: '/guide/rust21-cli' },
-          { text: '第 22 章 · 网络与 HTTP（规划中）' },
+          { text: '第 22 章 · 网络与 HTTP', link: '/guide/rust22-network-http' },
         ],
       },
       {
