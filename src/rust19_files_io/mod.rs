@@ -20,7 +20,10 @@ fn path_demo() {
     println!("    file_name = {:?}", path.file_name().unwrap());
     println!("    extension = {:?}", path.extension().unwrap());
     println!("    parent = {:?}", path.parent().unwrap());
-    println!("    with_extension(\"txt\") = {}", path.with_extension("txt").display());
+    println!(
+        "    with_extension(\"txt\") = {}",
+        path.with_extension("txt").display()
+    );
     println!("    is_absolute = {}", path.is_absolute());
     println!("    starts_with(\"notes\") = {}", path.starts_with("notes"));
 
@@ -43,10 +46,18 @@ fn io_demo() {
     fs::write(&note, "第一行\n第二行\n第三行\n").unwrap();
     let content = fs::read_to_string(&note).unwrap();
     println!("    写入 3 行，读回 {} 字节", content.len());
-    println!("    行数 = {}，第一行 = {:?}", content.lines().count(), content.lines().next().unwrap());
+    println!(
+        "    行数 = {}，第一行 = {:?}",
+        content.lines().count(),
+        content.lines().next().unwrap()
+    );
 
     let bytes = fs::read(&note).unwrap();
-    println!("    按字节读回 {} 字节，前 3 个字节 = {:?}", bytes.len(), &bytes[..3]);
+    println!(
+        "    按字节读回 {} 字节，前 3 个字节 = {:?}",
+        bytes.len(),
+        &bytes[..3]
+    );
 
     // 追加
     println!("\n--- 4. 追加内容 ---");
@@ -70,7 +81,10 @@ fn io_demo() {
         writeln!(writer, "第 {index} 行").unwrap();
     }
     writer.flush().unwrap();
-    println!("    out.txt 大小 = {} 字节", fs::metadata(&output).unwrap().len());
+    println!(
+        "    out.txt 大小 = {} 字节",
+        fs::metadata(&output).unwrap().len()
+    );
 
     // 目录
     println!("\n--- 7. 目录操作 ---");
@@ -108,7 +122,10 @@ fn io_demo() {
     fs::write(&doomed, "临时").unwrap();
     let existed_before = doomed.exists();
     fs::remove_file(&doomed).unwrap();
-    println!("    删除前存在 = {existed_before}，删除后存在 = {}", doomed.exists());
+    println!(
+        "    删除前存在 = {existed_before}，删除后存在 = {}",
+        doomed.exists()
+    );
 
     // 错误处理
     println!("\n--- 10. 错误处理：看 ErrorKind，别匹配消息 ---");
@@ -121,14 +138,20 @@ fn io_demo() {
     // 元数据
     println!("\n--- 11. 元数据 ---");
     let meta = fs::metadata(&note).unwrap();
-    println!("    note.txt: 是文件 = {}，大小 = {} 字节", meta.is_file(), meta.len());
+    println!(
+        "    note.txt: 是文件 = {}，大小 = {} 字节",
+        meta.is_file(),
+        meta.len()
+    );
     println!("    是否有修改时间 = {}", meta.modified().is_ok());
 }
 
 /// 路径相关的常见坑。
 fn pitfalls_demo() {
     println!("\n--- 12. 几个坑 ---");
-    println!("    ① 路径可能不是 UTF-8：用 OsStr/OsString，展示时用 to_string_lossy() 或 display()");
+    println!(
+        "    ① 路径可能不是 UTF-8：用 OsStr/OsString，展示时用 to_string_lossy() 或 display()"
+    );
     println!("    ② 拼接路径用 join，不要手写分隔符（Windows 是反斜杠）");
     println!("    ③ 判断存在用 Path::exists，但它不区分「不存在」和「权限不足」");
     println!("    ④ 大文件别一次 read_to_string，用 BufReader 逐行处理");
@@ -136,7 +159,11 @@ fn pitfalls_demo() {
     println!("    ⑥ 临时文件用 tempfile，别在项目目录里造文件");
 
     let path = Path::new("data/report.csv");
-    println!("    示例：{:?} 的父目录是 {:?}", path, path.parent().unwrap());
+    println!(
+        "    示例：{:?} 的父目录是 {:?}",
+        path,
+        path.parent().unwrap()
+    );
 }
 
 /// 演示路径、文件读写、目录遍历与错误处理。

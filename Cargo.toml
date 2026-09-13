@@ -3,6 +3,13 @@ name = "rust-learn"
 version = "0.1.0"
 edition = "2024"
 
+[features]
+default = []
+chapter24-demo = []
+
+[lib]
+crate-type = ["cdylib", "rlib"]
+
 [dependencies]
 chrono = "0.4"
 clap = { version = "4", default-features = false, features = ["std", "help", "usage", "error-context", "suggestions"] }

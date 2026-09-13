@@ -118,7 +118,10 @@ pub fn network_demo() {
     // 2. 手写一次 HTTP 请求
     println!("\n--- 2. 手写 HTTP 请求 ---");
     let url = spawn_http_server(None);
-    let host = url.trim_start_matches("http://").trim_end_matches('/').to_string();
+    let host = url
+        .trim_start_matches("http://")
+        .trim_end_matches('/')
+        .to_string();
     let mut stream = TcpStream::connect(&host).unwrap();
     stream
         .write_all(b"GET / HTTP/1.1\r\nHost: localhost\r\nConnection: close\r\n\r\n")
@@ -127,7 +130,10 @@ pub fn network_demo() {
     stream.read_to_string(&mut raw).unwrap();
     println!("    收到 {} 字节", raw.len());
     println!("    状态行 = {}", raw.lines().next().unwrap_or(""));
-    println!("    响应体 = {}", raw.split("\r\n\r\n").nth(1).unwrap_or(""));
+    println!(
+        "    响应体 = {}",
+        raw.split("\r\n\r\n").nth(1).unwrap_or("")
+    );
 
     // 3. reqwest：GET
     println!("\n--- 3. reqwest：GET 请求 ---");

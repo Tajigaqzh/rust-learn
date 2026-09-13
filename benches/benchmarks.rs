@@ -5,7 +5,7 @@
 //! 基准代码是**自包含**的：被测函数就写在这个文件里，不依赖 crate 内部实现——
 //! 因为二进制 crate 的集成测试和基准都只能看到公开接口。
 
-use criterion::{criterion_group, criterion_main, Criterion};
+use criterion::{Criterion, criterion_group, criterion_main};
 use std::collections::HashSet;
 use std::hint::black_box;
 

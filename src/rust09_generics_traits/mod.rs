@@ -156,7 +156,10 @@ pub fn generics_traits_demo() {
     // 1. 泛型函数
     println!("\n--- 1. 泛型函数 ---");
     println!("    largest(&[3, 9, 4]) = {}", largest(&[3, 9, 4]));
-    println!("    largest(&['a', 'z', 'm']) = {}", largest(&['a', 'z', 'm']));
+    println!(
+        "    largest(&['a', 'z', 'm']) = {}",
+        largest(&['a', 'z', 'm'])
+    );
     println!(
         "    largest(&[\"apple\", \"pear\", \"fig\"]) = {}",
         largest(&["apple", "pear", "fig"])
@@ -238,8 +241,14 @@ pub fn generics_traits_demo() {
     // 9. 关联类型
     println!("\n--- 9. 关联类型 ---");
     let numbers = vec![10, 20, 30];
-    println!("    Container::first(&numbers) = {:?}", Container::first(&numbers));
-    println!("    Container::len(&numbers) = {}", Container::len(&numbers));
+    println!(
+        "    Container::first(&numbers) = {:?}",
+        Container::first(&numbers)
+    );
+    println!(
+        "    Container::len(&numbers) = {}",
+        Container::len(&numbers)
+    );
     let empty: Vec<i32> = Vec::new();
     println!("    空 Vec 的 first = {:?}", Container::first(&empty));
 

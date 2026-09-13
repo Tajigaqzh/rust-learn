@@ -70,8 +70,14 @@ pub fn modules_tests_demo() {
     println!("    （round_to 是私有的，只能被同模块的 area_text 调用）");
 
     println!("\n--- 2. pub use 重导出 ---");
-    println!("    normalize(\"  rust   is  fun \") = [{}]", normalize("  rust   is  fun "));
-    println!("    text::word_count(\"rust is fun\") = {}", text::word_count("rust is fun"));
+    println!(
+        "    normalize(\"  rust   is  fun \") = [{}]",
+        normalize("  rust   is  fun ")
+    );
+    println!(
+        "    text::word_count(\"rust is fun\") = {}",
+        text::word_count("rust is fun")
+    );
 
     println!("\n--- 3. 测试 ---");
     println!("    单元测试写在本文件末尾：#[cfg(test)] mod tests");

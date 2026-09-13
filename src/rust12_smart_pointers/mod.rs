@@ -105,7 +105,10 @@ pub fn smart_pointers_demo() {
     let wrapper = Wrapper {
         value: String::from("hello"),
     };
-    println!("    wrapper.len() = {}（自动解引用到 String）", wrapper.len());
+    println!(
+        "    wrapper.len() = {}（自动解引用到 String）",
+        wrapper.len()
+    );
     println!("    wrapper.to_uppercase() = {}", wrapper.to_uppercase());
     let boxed_string = Box::new(String::from("boxed"));
     let as_str: &str = &boxed_string; // deref coercion：&Box<String> -> &str
@@ -127,10 +130,16 @@ pub fn smart_pointers_demo() {
     {
         let clone_a = Rc::clone(&shared);
         let clone_b = Rc::clone(&shared);
-        println!("    克隆两次之后 strong_count = {}", Rc::strong_count(&shared));
+        println!(
+            "    克隆两次之后 strong_count = {}",
+            Rc::strong_count(&shared)
+        );
         println!("    三份指向同一块数据 = {clone_a:?} / {clone_b:?}");
     }
-    println!("    离开块之后 strong_count = {}", Rc::strong_count(&shared));
+    println!(
+        "    离开块之后 strong_count = {}",
+        Rc::strong_count(&shared)
+    );
 
     // 5. Rc 的内容默认不可变
     println!("\n--- 5. Rc 的内容默认改不了 ---");
@@ -153,7 +162,10 @@ pub fn smart_pointers_demo() {
     let shared_state = Rc::new(RefCell::new(vec![1]));
     let handle = Rc::clone(&shared_state);
     handle.borrow_mut().push(2);
-    println!("    通过克隆出来的句柄修改，原引用也看得到 = {:?}", shared_state.borrow());
+    println!(
+        "    通过克隆出来的句柄修改，原引用也看得到 = {:?}",
+        shared_state.borrow()
+    );
 
     // 8. Weak
     println!("\n--- 8. Weak：打破循环引用 ---");

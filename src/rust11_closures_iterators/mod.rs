@@ -81,11 +81,17 @@ pub fn closures_iterators_demo() {
 
     let owned = String::from("move 进去");
     let take = move || owned.len(); // 移动进闭包
-    println!("    move 闭包：长度 = {}（owned 已经不能在外面用了）", take());
+    println!(
+        "    move 闭包：长度 = {}（owned 已经不能在外面用了）",
+        take()
+    );
 
     // 3. 闭包作为参数
     println!("\n--- 3. 闭包作为参数 ---");
-    println!("    apply_twice(|n| n + 3, 1) = {}", apply_twice(|n| n + 3, 1));
+    println!(
+        "    apply_twice(|n| n + 3, 1) = {}",
+        apply_twice(|n| n + 3, 1)
+    );
     let mut ticks = 0;
     apply_and_count(|| ticks += 1, 3);
     println!("    apply_and_count 三次之后 ticks = {ticks}");
@@ -160,7 +166,11 @@ pub fn closures_iterators_demo() {
     let nums = vec![3, 1, 4, 1, 5, 9, 2, 6];
     println!("    sum = {}", nums.iter().sum::<i32>());
     println!("    count = {}", nums.iter().count());
-    println!("    max / min = {:?} / {:?}", nums.iter().max(), nums.iter().min());
+    println!(
+        "    max / min = {:?} / {:?}",
+        nums.iter().max(),
+        nums.iter().min()
+    );
     println!(
         "    fold 求积（前四个）= {}",
         nums.iter().take(4).fold(1, |acc, n| acc * n)
@@ -208,11 +218,7 @@ pub fn closures_iterators_demo() {
             manual.push(n * n);
         }
     }
-    let chained: Vec<i32> = data
-        .iter()
-        .filter(|n| *n % 2 == 0)
-        .map(|n| n * n)
-        .collect();
+    let chained: Vec<i32> = data.iter().filter(|n| *n % 2 == 0).map(|n| n * n).collect();
     println!("    手写循环 = {manual:?}");
     println!("    迭代器链 = {chained:?}");
     println!("    结果相同，迭代器版本没有中间变量，性能也几乎一样");

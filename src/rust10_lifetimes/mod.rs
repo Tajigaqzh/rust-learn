@@ -114,7 +114,10 @@ pub fn lifetimes_demo() {
 
     // 3. 省略规则
     println!("\n--- 3. 什么时候不用写 ---");
-    println!("    first_word(\"hello world\") = {}", first_word("hello world"));
+    println!(
+        "    first_word(\"hello world\") = {}",
+        first_word("hello world")
+    );
     println!("    first_word(\"oneword\") = {}", first_word("oneword"));
     println!("    （只有一个输入引用时，编译器知道返回值借的就是它）");
 

@@ -95,8 +95,8 @@ export default defineConfig({
         text: '工程与发布',
         items: [
           { text: '第 23 章 · 测试进阶与基准', link: '/guide/rust23-testing-bench' },
-          { text: '第 24 章 · Cargo 深入与发布（规划中）' },
-          { text: '第 25 章 · unsafe 与 FFI（规划中）' },
+          { text: '第 24 章 · Cargo 深入与发布', link: '/guide/rust24-cargo' },
+          { text: '第 25 章 · unsafe 与 FFI', link: '/guide/rust25-unsafe-ffi' },
           { text: '第 26 章 · 综合实战项目（规划中）' },
         ],
       },

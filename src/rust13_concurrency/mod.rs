@@ -2,7 +2,7 @@
 //!
 //! 运行方式：`cargo run`，输出接在第 12 章后面。
 
-use std::sync::{mpsc, Arc, Mutex};
+use std::sync::{Arc, Mutex, mpsc};
 use std::thread;
 use std::time::Duration;
 

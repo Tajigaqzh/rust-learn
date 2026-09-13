@@ -103,7 +103,10 @@ pub fn async_demo() {
     // 3. 手动实现 Future
     println!("\n--- 3. 手动实现 Future ---");
     println!("    block_on(Ready(7)) = {}", block_on(Ready(7)));
-    println!("    block_on(Countdown::new(3)) = {}", block_on(Countdown::new(3)));
+    println!(
+        "    block_on(Countdown::new(3)) = {}",
+        block_on(Countdown::new(3))
+    );
     println!("    （Countdown 每次 poll 返回 Pending，直到倒计时归零）");
 
     // 4. .await 串起来

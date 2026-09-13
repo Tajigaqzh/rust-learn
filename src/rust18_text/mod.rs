@@ -8,13 +8,11 @@ use std::sync::LazyLock;
 use unicode_segmentation::UnicodeSegmentation;
 
 /// 正则编译很贵，用 `LazyLock` 编译一次、全局复用。
-static DATE: LazyLock<Regex> =
-    LazyLock::new(|| Regex::new(r"(\d{4})-(\d{2})-(\d{2})").unwrap());
+static DATE: LazyLock<Regex> = LazyLock::new(|| Regex::new(r"(\d{4})-(\d{2})-(\d{2})").unwrap());
 
 /// 日志行：`INFO 14:30:00 服务启动`。
 static LOG_LINE: LazyLock<Regex> = LazyLock::new(|| {
-    Regex::new(r"^(?P<level>INFO|WARN|ERROR)\s+(?P<time>\d{2}:\d{2}:\d{2})\s+(?P<msg>.*)$")
-        .unwrap()
+    Regex::new(r"^(?P<level>INFO|WARN|ERROR)\s+(?P<time>\d{2}:\d{2}:\d{2})\s+(?P<msg>.*)$").unwrap()
 });
 
 /// 连续空白。
@@ -69,7 +67,10 @@ pub fn text_demo() {
 
     // 2. Unicode 大小写
     println!("\n--- 2. 大小写与 Unicode ---");
-    println!("    \"straße\".to_uppercase() = {}", "straße".to_uppercase());
+    println!(
+        "    \"straße\".to_uppercase() = {}",
+        "straße".to_uppercase()
+    );
     println!("    \"中文\".to_uppercase() = {}", "中文".to_uppercase());
     println!("    （大小写转换是按 Unicode 规则做的，可能改变长度）");
 
@@ -91,7 +92,10 @@ pub fn text_demo() {
     println!("    is_match = {}", DATE.is_match(text));
     println!("    第一个匹配 = {:?}", DATE.find(text).unwrap().as_str());
     for caps in DATE.captures_iter(text) {
-        println!("    捕获组：年 {} 月 {} 日 {}", &caps[1], &caps[2], &caps[3]);
+        println!(
+            "    捕获组：年 {} 月 {} 日 {}",
+            &caps[1], &caps[2], &caps[3]
+        );
     }
 
     // 5. 命名捕获组与替换
@@ -123,11 +127,20 @@ pub fn text_demo() {
 
     // 8. 转义与不支持的语法
     println!("\n--- 8. 转义与不支持的语法 ---");
-    println!("    把普通文本当模式用：regex::escape(\"a.b*c\") = {}", regex::escape("a.b*c"));
+    println!(
+        "    把普通文本当模式用：regex::escape(\"a.b*c\") = {}",
+        regex::escape("a.b*c")
+    );
     let lookahead = Regex::new(r"\d+(?=px)").unwrap_err();
-    println!("    前瞻不支持：{}", lookahead.to_string().lines().last().unwrap());
+    println!(
+        "    前瞻不支持：{}",
+        lookahead.to_string().lines().last().unwrap()
+    );
     let backref = Regex::new(r"(\w+)\1").unwrap_err();
-    println!("    反向引用不支持：{}", backref.to_string().lines().last().unwrap());
+    println!(
+        "    反向引用不支持：{}",
+        backref.to_string().lines().last().unwrap()
+    );
     println!("    （Rust 的 regex 走的是「线性时间」路线，故意不支持这些）");
 
     println!("\n========== 文本处理与正则演示结束 ==========");

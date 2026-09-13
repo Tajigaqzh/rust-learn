@@ -41,7 +41,13 @@ impl Rectangle {
 /// 给自定义类型实现 `Display`，就能直接用 `{rect}` 打印。
 impl fmt::Display for Rectangle {
     fn fmt(&self, f: &mut fmt::Formatter<'_>) -> fmt::Result {
-        write!(f, "{}x{}（面积 {:.2}）", self.width, self.height, self.area())
+        write!(
+            f,
+            "{}x{}（面积 {:.2}）",
+            self.width,
+            self.height,
+            self.area()
+        )
     }
 }
 
@@ -94,11 +100,7 @@ fn first_even(values: &[i32]) -> Option<i32> {
 
 /// 一半，奇数返回 `None`，用来演示 `let ... else`。
 fn halve(n: i32) -> Option<i32> {
-    if n % 2 == 0 {
-        Some(n / 2)
-    } else {
-        None
-    }
+    if n % 2 == 0 { Some(n / 2) } else { None }
 }
 
 fn describe_half(n: i32) -> String {
@@ -176,7 +178,10 @@ pub fn structs_enums_demo() {
     println!("    base = {base}");
     println!("    doubled = {doubled}");
     println!("    doubled 是正方形吗：{}", doubled.is_square());
-    println!("    4x4 是正方形吗：{}", Rectangle::new(4.0, 4.0).is_square());
+    println!(
+        "    4x4 是正方形吗：{}",
+        Rectangle::new(4.0, 4.0).is_square()
+    );
 
     // 3. derive 与 Display
     println!("\n--- 3. derive 与 Display ---");
@@ -246,14 +251,23 @@ pub fn structs_enums_demo() {
 
     // 7. Option<T>
     println!("\n--- 7. Option<T>：没有 null 的世界 ---");
-    println!("    first_even(&[1, 3, 4, 7]) = {:?}", first_even(&[1, 3, 4, 7]));
-    println!("    first_even(&[1, 3, 5])    = {:?}", first_even(&[1, 3, 5]));
+    println!(
+        "    first_even(&[1, 3, 4, 7]) = {:?}",
+        first_even(&[1, 3, 4, 7])
+    );
+    println!(
+        "    first_even(&[1, 3, 5])    = {:?}",
+        first_even(&[1, 3, 5])
+    );
 
     match first_even(&[1, 3, 4]) {
         Some(n) => println!("    match 拿到 {n}"),
         None => println!("    match 啥也没找到"),
     }
-    println!("    unwrap_or 兜底 = {}", first_even(&[1, 3, 5]).unwrap_or(0));
+    println!(
+        "    unwrap_or 兜底 = {}",
+        first_even(&[1, 3, 5]).unwrap_or(0)
+    );
     if let Some(n) = first_even(&[2, 5]) {
         println!("    if let 拿到 {n}");
     }

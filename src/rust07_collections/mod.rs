@@ -176,7 +176,10 @@ pub fn collections_demo() {
         joined.starts_with("hello"),
         joined.contains("world")
     );
-    println!("    \"42\".trim().parse::<i32>() = {:?}", "42".trim().parse::<i32>());
+    println!(
+        "    \"42\".trim().parse::<i32>() = {:?}",
+        "42".trim().parse::<i32>()
+    );
     println!(
         "    解析失败用 unwrap_or 兜底 = {}",
         "abc".parse::<i32>().unwrap_or(-1)
@@ -206,9 +209,15 @@ pub fn collections_demo() {
     ages.insert(String::from("linus"), 54);
     ages.insert(String::from("ada"), 37); // 同一个键：覆盖旧值
     println!("    len = {}", ages.len());
-    println!("    get(\"ada\") = {:?}（按 &str 查 String 键也可以）", ages.get("ada"));
+    println!(
+        "    get(\"ada\") = {:?}（按 &str 查 String 键也可以）",
+        ages.get("ada")
+    );
     println!("    get(\"grace\") = {:?}", ages.get("grace"));
-    println!("    contains_key(\"linus\") = {}", ages.contains_key("linus"));
+    println!(
+        "    contains_key(\"linus\") = {}",
+        ages.contains_key("linus")
+    );
     println!(
         "    查不到的兜底 = {}",
         ages.get("nobody").copied().unwrap_or(0)
@@ -253,10 +262,7 @@ pub fn collections_demo() {
     grid.insert(Coord { x: 0, y: 0 }, "起点");
     grid.insert(Coord { x: 1, y: 2 }, "目标");
     println!("    表里有 {} 项", grid.len());
-    println!(
-        "    get(1, 2) = {:?}",
-        grid.get(&Coord { x: 1, y: 2 })
-    );
+    println!("    get(1, 2) = {:?}", grid.get(&Coord { x: 1, y: 2 }));
     println!("    （键必须实现 Hash + Eq，derive 一行就够）");
 
     println!("\n========== 常用集合演示结束 ==========");

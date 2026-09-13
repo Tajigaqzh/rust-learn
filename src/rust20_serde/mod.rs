@@ -58,7 +58,10 @@ pub fn serde_demo() {
         log_path: None,
     };
     println!("    紧凑：{}", serde_json::to_string(&config).unwrap());
-    println!("    美化：\n{}", serde_json::to_string_pretty(&config).unwrap());
+    println!(
+        "    美化：\n{}",
+        serde_json::to_string_pretty(&config).unwrap()
+    );
     println!("    （log-path 是 None，被 skip_serializing_if 跳过了）");
 
     // 2. 往返
@@ -76,7 +79,10 @@ pub fn serde_demo() {
     let file_text = "app-name = \"rust-learn\"\nport = 3000\ndebug = false\n";
     let from_file: Config = toml::from_str(file_text).unwrap();
     println!("    配置文件里：port = {}", from_file.port);
-    println!("    序列化回 TOML：\n{}", toml::to_string_pretty(&from_file).unwrap());
+    println!(
+        "    序列化回 TOML：\n{}",
+        toml::to_string_pretty(&from_file).unwrap()
+    );
 
     // 4. 配置分层：默认值 < 文件 < 环境变量
     println!("\n--- 4. 配置分层 ---");
@@ -95,7 +101,10 @@ pub fn serde_demo() {
     println!("    json! = {value}");
     println!("    value[\"name\"] = {}", value["name"]);
     println!("    value[\"tags\"][1] = {}", value["tags"][1]);
-    println!("    不存在的键返回 Null，不会 panic = {}", value["missing"].is_null());
+    println!(
+        "    不存在的键返回 Null，不会 panic = {}",
+        value["missing"].is_null()
+    );
 
     // 6. 带标签的枚举
     println!("\n--- 6. 带标签的枚举 ---");
@@ -105,8 +114,7 @@ pub fn serde_demo() {
     };
     println!("    Memory -> {}", serde_json::to_string(&memory).unwrap());
     println!("    File   -> {}", serde_json::to_string(&file).unwrap());
-    let parsed: Backend =
-        serde_json::from_str(r#"{"kind":"file","path":"/tmp/x.db"}"#).unwrap();
+    let parsed: Backend = serde_json::from_str(r#"{"kind":"file","path":"/tmp/x.db"}"#).unwrap();
     println!("    解析回来 = {parsed:?}");
 
     // 7. 错误信息
@@ -114,10 +122,7 @@ pub fn serde_demo() {
     let cases: [(&str, &str); 4] = [
         ("缺少逗号", r#"{ "app-name": "x" "port": 1 }"#),
         ("类型不对", r#"{ "app-name": "x", "port": "abc" }"#),
-        (
-            "未知字段",
-            r#"{ "app-name": "x", "port": 1, "extra": 2 }"#,
-        ),
+        ("未知字段", r#"{ "app-name": "x", "port": 1, "extra": 2 }"#),
         ("缺少必填字段", r#"{ "port": 1 }"#),
     ];
     for (label, text) in cases {

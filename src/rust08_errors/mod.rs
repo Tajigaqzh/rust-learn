@@ -148,7 +148,8 @@ pub fn errors_demo() {
     println!("    find_user(ada) = {:?}", find_user(&users, "ada"));
     let found = find_user(&users, "grace").ok_or("没有这个人");
     println!("    ok_or 之后 = {:?}", found);
-    let found2 = find_user(&users, "grace").ok_or_else(|| format!("名单 {} 里没有 grace", users.len()));
+    let found2 =
+        find_user(&users, "grace").ok_or_else(|| format!("名单 {} 里没有 grace", users.len()));
     println!("    ok_or_else 之后 = {:?}", found2);
     println!("    Ok(3).ok() = {:?}", Ok::<i32, String>(3).ok());
 

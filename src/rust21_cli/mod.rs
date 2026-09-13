@@ -132,7 +132,11 @@ pub fn cli_demo() {
 
     // 7. 日志
     println!("\n--- 7. 日志：分级 + 结构化字段 ---");
-    fmt().without_time().with_target(false).with_max_level(tracing::Level::INFO).init();
+    fmt()
+        .without_time()
+        .with_target(false)
+        .with_max_level(tracing::Level::INFO)
+        .init();
     info!("开始统计文本");
     debug!("这条 debug 日志默认不显示（级别不够）");
     warn!(file = "notes.txt", "文件比较大，可能有点慢");

@@ -145,7 +145,10 @@ pub fn ownership_demo() {
         &sentence[..5],
         &sentence[6..11]
     );
-    println!("    first_word 返回切片而不是新 String: {}", first_word(&sentence));
+    println!(
+        "    first_word 返回切片而不是新 String: {}",
+        first_word(&sentence)
+    );
 
     let scores = [80, 90, 75, 88];
     let middle = &scores[1..3];

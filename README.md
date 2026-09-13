@@ -60,7 +60,9 @@ pnpm docs:preview    # 预览构建结果
 | 第 21 章 | 命令行工具 | [rust21-cli](docs/guide/rust21-cli.md) | `src/rust21_cli/` |
 | 第 22 章 | 网络与 HTTP | [rust22-network-http](docs/guide/rust22-network-http.md) | `src/rust22_network/` |
 | 第 23 章 | 测试进阶与基准 | [rust23-testing-bench](docs/guide/rust23-testing-bench.md) | `src/rust23_testing/`、`tests/`、`benches/` |
-| 第 24–26 章 | Cargo 发布、unsafe 与 FFI、实战项目 | 规划中 | 规划中 |
+| 第 24 章 | Cargo 深入与发布 | [rust24-cargo](docs/guide/rust24-cargo.md) | `src/rust24_cargo/` |
+| 第 25 章 | unsafe 与 FFI | [rust25-unsafe-ffi](docs/guide/rust25-unsafe-ffi.md) | `src/rust25_unsafe_ffi/` |
+| 第 26 章 | 综合实战项目 | 规划中 | 规划中 |
 
 完整路线见[学习路线与章节规划](docs/guide/index.md)。
 

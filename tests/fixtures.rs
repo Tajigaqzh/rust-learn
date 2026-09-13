@@ -8,10 +8,7 @@ use common::{make_fixture, total_chars};
 
 #[test]
 fn counts_chars_in_fixture() {
-    let (_dir, root) = make_fixture(&[
-        ("a.txt", "abc"),
-        ("sub/b.txt", "中文"),
-    ]);
+    let (_dir, root) = make_fixture(&[("a.txt", "abc"), ("sub/b.txt", "中文")]);
 
     // "abc" 3 个字符 + "中文" 2 个字符
     assert_eq!(total_chars(&root), 5);

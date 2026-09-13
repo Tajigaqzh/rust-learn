@@ -21,6 +21,8 @@ mod rust20_serde;
 mod rust21_cli;
 mod rust22_network;
 mod rust23_testing;
+mod rust24_cargo;
+mod rust25_unsafe_ffi;
 
 use rust01_print::print_demo;
 use rust02_variables::variables_demo;
@@ -45,6 +47,8 @@ use rust20_serde::serde_demo;
 use rust21_cli::cli_demo;
 use rust22_network::network_demo;
 use rust23_testing::testing_demo;
+use rust24_cargo::cargo_demo;
+use rust25_unsafe_ffi::unsafe_ffi_demo;
 
 fn main() {
     println!("Hello, world!");
@@ -94,4 +98,8 @@ fn main() {
     network_demo();
 
     testing_demo();
+
+    cargo_demo();
+
+    unsafe_ffi_demo();
 }

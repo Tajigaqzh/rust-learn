@@ -76,9 +76,7 @@ pub fn testing_demo() {
     );
     println!(
         "    uptime_label(&FakeClock {{ millis: 3_600_000 }}) = {}",
-        uptime_label(&FakeClock {
-            millis: 3_600_000
-        })
+        uptime_label(&FakeClock { millis: 3_600_000 })
     );
     println!("    （真实时钟每次结果都不同；假时钟让测试可复现）");
 

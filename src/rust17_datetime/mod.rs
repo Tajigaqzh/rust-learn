@@ -5,7 +5,9 @@
 //! 演示代码里所有「具体时刻」都用固定值，这样输出可复现；
 //! 只有「现在」相关的比较才用实时时间，而且只打印布尔结果。
 
-use chrono::{Datelike, Duration, FixedOffset, Months, NaiveDate, NaiveDateTime, NaiveTime, TimeZone, Utc};
+use chrono::{
+    Datelike, Duration, FixedOffset, Months, NaiveDate, NaiveDateTime, NaiveTime, TimeZone, Utc,
+};
 use std::time::{Duration as StdDuration, Instant, SystemTime, UNIX_EPOCH};
 
 /// 演示系统时间的两种类型：`SystemTime`（真实时刻）与 `Instant`（单调时钟）。
@@ -76,7 +78,10 @@ fn chrono_demo() {
     let local = utc.with_timezone(&beijing);
     println!("    UTC 时间 = {utc}");
     println!("    东八区时间 = {local}");
-    println!("    两者时间戳相同：{}", utc.timestamp() == local.timestamp());
+    println!(
+        "    两者时间戳相同：{}",
+        utc.timestamp() == local.timestamp()
+    );
     println!("    东八区偏移 = {}", beijing);
 
     println!("\n--- 5. 时间的算术 ---");
@@ -86,8 +91,14 @@ fn chrono_demo() {
     let next_month = date.checked_add_months(Months::new(1)).unwrap();
     println!("    加 1 个月 = {next_month}");
     let leap = NaiveDate::from_ymd_opt(2024, 2, 29).unwrap();
-    println!("    2024-02-29 加 1 年 = {}", leap.checked_add_months(Months::new(12)).unwrap());
-    println!("    2023 年 2 月有 29 号吗：{}", NaiveDate::from_ymd_opt(2023, 2, 29).is_some());
+    println!(
+        "    2024-02-29 加 1 年 = {}",
+        leap.checked_add_months(Months::new(12)).unwrap()
+    );
+    println!(
+        "    2023 年 2 月有 29 号吗：{}",
+        NaiveDate::from_ymd_opt(2023, 2, 29).is_some()
+    );
 
     println!("\n--- 6. 时间戳与日期互转 ---");
     println!("    时间戳（秒）= {}", utc.timestamp());
