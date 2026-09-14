@@ -90,12 +90,7 @@ impl Shape {
 
 /// 用 `Option` 表达「可能没有」：返回第一个偶数。
 fn first_even(values: &[i32]) -> Option<i32> {
-    for &value in values {
-        if value % 2 == 0 {
-            return Some(value);
-        }
-    }
-    None
+    values.iter().find(|value| **value % 2 == 0).copied()
 }
 
 /// 一半，奇数返回 `None`，用来演示 `let ... else`。
@@ -272,7 +267,7 @@ pub fn structs_enums_demo() {
         println!("    if let 拿到 {n}");
     }
 
-    let numbers = vec![10, 20, 30];
+    let numbers = [10, 20, 30];
     println!("    numbers.get(1) = {:?}", numbers.get(1));
     println!("    numbers.get(9) = {:?}", numbers.get(9));
 

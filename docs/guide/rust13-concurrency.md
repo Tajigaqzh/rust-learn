@@ -40,7 +40,7 @@ let total = handle.join().unwrap();      // 等它结束并拿到返回值
 `spawn` 的签名要求闭包满足 `F: Send + 'static`（第 9 章读 trait bound 的方法在这里用上了）：**闭包必须能安全送到别的线程，而且不能借用任何局部变量**——因为子线程可能比创建它的函数活得还长。
 
 ```rust
-let data = vec![1, 2, 3];
+let data: Vec<i32> = (1..=3).collect();
 let handle = thread::spawn(|| println!("{data:?}"));
 ```
 
@@ -63,10 +63,14 @@ help: to force the closure to take ownership of `data` (and any other referenced
 按 `help` 加 `move` 就行——把 `data` 的所有权交给线程（第 11 章讲过 `move` 闭包）：
 
 ```rust
-let data = vec![1, 2, 3];
+let data: Vec<i32> = (1..=3).collect();
 let handle = thread::spawn(move || data.iter().sum::<i32>());
 println!("子线程求和 = {}", handle.join().unwrap());     // 6
 ```
+
+这里没有写 `vec![1, 2, 3]`，是因为**数组是 `Copy` 类型**：`move` 进去的只是一份复制，
+原变量照样能用，演示不出「所有权被移走」。`Vec` 不实现 `Copy`，`move` 之后
+`data` 就真的没了——这正是要看的现象。
 
 代价还是那个：`data` 之后不能再用。**如果只是想借一会儿、又不想 `clone`，用 `thread::scope`**（13.8）。
 

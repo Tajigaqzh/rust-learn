@@ -46,10 +46,13 @@ impl From<ParseIntError> for ConfigError {
 /// 从形如 `key = value` 的多行文本里取值；找不到就返回错误。
 fn read_field<'a>(text: &'a str, key: &str) -> Result<&'a str, ConfigError> {
     for line in text.lines() {
-        if let Some((k, v)) = line.split_once('=') {
-            if k.trim() == key {
-                return Ok(v.trim());
-            }
+        // `let ... else` 把「这一行没有等号」当成继续循环的普通情况，
+        // 剩下的判断就只需要一层缩进（第 6 章 6.12 讲过这个语法）。
+        let Some((k, v)) = line.split_once('=') else {
+            continue;
+        };
+        if k.trim() == key {
+            return Ok(v.trim());
         }
     }
     Err(ConfigError::MissingKey(key.to_string()))

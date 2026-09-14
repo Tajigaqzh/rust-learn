@@ -16,7 +16,15 @@ docs/.vitepress/    文档站配置（VitePress）
 ## 环境要求
 
 - Rust：edition 2024（rustc 1.85 及以上）
-- Node.js 20+ 与 pnpm（只在构建文档站时需要）
+- Node.js 20+ 与 pnpm 12（只在构建文档站时需要）。仓库用 `packageManager`
+  固定了 pnpm 版本：`pnpm-lock.yaml` 是 v9 格式，`pnpm-workspace.yaml` 里的
+  `allowBuilds` 也是新版本才读的设置，pnpm 8 会直接报
+  `ERR_PNPM_INVALID_WORKSPACE_CONFIGURATION`。推荐用 corepack 对齐版本：
+
+  ```bash
+  corepack enable
+  corepack prepare pnpm@12.3.4 --activate
+  ```
 
 ## 常用命令
 
@@ -60,11 +68,11 @@ pnpm docs:preview    # 预览构建结果
 | 第 21 章 | 命令行工具 | [rust21-cli](docs/guide/rust21-cli.md) | `src/rust21_cli/` |
 | 第 22 章 | 网络与 HTTP | [rust22-network-http](docs/guide/rust22-network-http.md) | `src/rust22_network/` |
 | 第 23 章 | 测试进阶与基准 | [rust23-testing-bench](docs/guide/rust23-testing-bench.md) | `src/rust23_testing/`、`tests/`、`benches/` |
-| 第 24 章 | Cargo 深入与发布 | [rust24-cargo](docs/guide/rust24-cargo.md) | `src/rust24_cargo/` |
-| 第 25 章 | unsafe 与 FFI | [rust25-unsafe-ffi](docs/guide/rust25-unsafe-ffi.md) | `src/rust25_unsafe_ffi/` |
+| 第 24 章 | Cargo 深入与发布 | [rust24-cargo](docs/guide/rust24-cargo.md) | `src/rust24_cargo/`、`examples/workspace-demo/` |
+| 第 25 章 | unsafe 与 FFI | [rust25-unsafe-ffi](docs/guide/rust25-unsafe-ffi.md) | `src/rust25_unsafe_ffi/`、`src/lib.rs`、`examples/ffi/` |
 | 第 26 章 | 数据库操作 | [rust26-database](docs/guide/rust26-database.md) | `src/rust26_database/` |
 | 第 27 章 | 综合实战项目 | [rust27-app](docs/guide/rust27-app.md) | `src/rust27_app.rs` |
-| 第 28 章 | 部署、监控与性能优化 | [rust28-ops](docs/guide/rust28-ops.md) | `src/rust28_ops.rs` |
+| 第 28 章 | 部署、监控与性能优化 | [rust28-ops](docs/guide/rust28-ops.md) | `src/rust28_ops.rs`、`benches/` |
 
 完整路线见[学习路线与章节规划](docs/guide/index.md)。
 

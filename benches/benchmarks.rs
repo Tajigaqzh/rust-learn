@@ -23,15 +23,15 @@ fn sum_with_iter(values: &[i64]) -> i64 {
     values.iter().sum()
 }
 
-/// 用 `format!` 拼一百次。
+/// 用 `format!` 拼一百次：每次都把已有内容复制进一个新 `String`。
 fn join_with_format(parts: &[&str]) -> String {
-    let mut result = String::new();
-    for (index, part) in parts.iter().enumerate() {
-        if index > 0 {
-            result = format!("{result},{part}");
-        } else {
-            result = format!("{part}");
-        }
+    let mut parts = parts.iter();
+    let mut result = match parts.next() {
+        Some(first) => (*first).to_string(),
+        None => return String::new(),
+    };
+    for part in parts {
+        result = format!("{result},{part}");
     }
     result
 }

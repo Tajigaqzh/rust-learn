@@ -134,8 +134,13 @@ mod tests {
     #[test]
     fn matches_macro_is_good_for_shapes() {
         let value = Some(42);
+        // 带 guard 的形态匹配：既看变体，也看里面的值
         assert!(matches!(value, Some(n) if n > 40));
-        assert!(!matches!(value, None));
+        assert!(!matches!(value, Some(n) if n > 100));
+
+        // 同一套写法也能用在 Result 上，并且能把错误内容绑出来判断
+        let outcome: Result<i32, String> = Err(String::from("boom"));
+        assert!(matches!(outcome, Err(message) if message.contains("boom")));
     }
 
     /// 应该 panic 的测试：`expected` 是子串匹配，必须写。

@@ -1,0 +1,8 @@
+[package]
+name = "cli-bin"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+# 路径依赖：同一个工作区里直接指向兄弟成员，不需要版本号
+core-lib = { path = "../core-lib" }

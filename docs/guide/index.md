@@ -37,11 +37,11 @@
 | 第 21 章 | [命令行工具](./rust21-cli) | `env::args`、`clap`、退出码、stdout/stderr 分流、`tracing` 日志 | `src/rust21_cli/` |
 | 第 22 章 | [网络与 HTTP](./rust22-network-http) | TCP 字节流、`reqwest`、超时与重试、并发与 async 客户端 | `src/rust22_network/` |
 | 第 23 章 | [测试进阶与基准](./rust23-testing-bench) | 测试分层、共享夹具、依赖注入、`criterion` 基准与结果解读 | `src/rust23_testing/`、`tests/`、`benches/` |
-| 第 24 章 | [Cargo 深入与发布](./rust24-cargo) | features、workspace、依赖管理、交叉编译、发布 crate 与二进制 | `src/rust24_cargo/` |
-| 第 25 章 | [unsafe 与 FFI](./rust25-unsafe-ffi) | 裸指针、`unsafe` 块与安全抽象、`extern "C"`、bindgen 概览 | `src/rust25_unsafe_ffi/` |
-| 第 26 章 | [数据库操作](./rust26-database) | SQLite 连接、CRUD、参数化查询、事务、迁移与测试隔离 | `src/rust26_database/` |
-| 第 27 章 | [综合实战项目](./rust27-app) | CLI 任务管理系统，整合数据库、配置、错误处理和测试 | `src/rust27_app.rs` |
-| 第 28 章 | [部署、监控与性能优化](./rust28-ops) | 发布、日志、健康检查、指标、基准和性能回归 | `src/rust28_ops.rs` |
+| 第 24 章 | [Cargo 深入与发布](./rust24-cargo) | features、SemVer、workspace、profile、交叉编译、发布 crate 与二进制 | `src/rust24_cargo/`、`examples/workspace-demo/` |
+| 第 25 章 | [unsafe 与 FFI](./rust25-unsafe-ffi) | 裸指针、`unsafe` 块与安全抽象、`extern "C"`、`#[repr(C)]` 布局、panic 边界、ctypes / cgo 调用 | `src/rust25_unsafe_ffi/`、`src/lib.rs`、`examples/ffi/` |
+| 第 26 章 | [数据库操作](./rust26-database) | SQLite 连接、版本化迁移、参数化 CRUD、类型映射、事务回滚、索引与查询计划、测试隔离 | `src/rust26_database/` |
+| 第 27 章 | [综合实战项目](./rust27-app) | 分层架构、配置分层、可测试的 CLI、错误类型与退出码、JSON 输出、持久化与测试闭环 | `src/rust27_app.rs` |
+| 第 28 章 | [部署、监控与性能优化](./rust28-ops) | 发布清单、存活/就绪探针、指标与百分位、结构化日志、事务性能对比、运维 runbook | `src/rust28_ops.rs` |
 
 ## 本地跑文档站
 

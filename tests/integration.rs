@@ -8,7 +8,7 @@ use std::process::Command;
 
 #[test]
 fn binary_runs_and_prints_every_chapter() {
-    let output = Command::new(env!("CARGO_BIN_EXE_rust-learn"))
+    let output = Command::new(env!("CARGO_BIN_EXE_rust-learn-demo"))
         .output()
         .expect("运行二进制失败");
 
@@ -28,7 +28,7 @@ fn binary_runs_and_prints_every_chapter() {
 
 #[test]
 fn binary_reports_finish_markers() {
-    let output = Command::new(env!("CARGO_BIN_EXE_rust-learn"))
+    let output = Command::new(env!("CARGO_BIN_EXE_rust-learn-demo"))
         .output()
         .expect("运行二进制失败");
 
@@ -38,7 +38,7 @@ fn binary_reports_finish_markers() {
 
 #[test]
 fn binary_prints_error_chapter_marker() {
-    let output = Command::new(env!("CARGO_BIN_EXE_rust-learn"))
+    let output = Command::new(env!("CARGO_BIN_EXE_rust-learn-demo"))
         .output()
         .expect("运行二进制失败");
 

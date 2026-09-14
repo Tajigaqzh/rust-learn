@@ -26,7 +26,8 @@ pub fn concurrency_demo() {
 
     // 2. move 与所有权
     println!("\n--- 2. move：把数据交给线程 ---");
-    let data = vec![1, 2, 3];
+    // 用运行时构造的 Vec：数组是 Copy，move 之后原变量还能用，演示不出「所有权被移走」
+    let data: Vec<i32> = (1..=3).collect();
     let handle = thread::spawn(move || data.iter().sum::<i32>());
     println!("    子线程求和 = {}", handle.join().unwrap());
     // println!("{data:?}");   // 取消注释会报 E0382：data 已经被移进线程

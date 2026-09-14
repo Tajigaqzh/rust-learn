@@ -131,11 +131,15 @@ pub fn text_demo() {
         "    把普通文本当模式用：regex::escape(\"a.b*c\") = {}",
         regex::escape("a.b*c")
     );
+    // 这两行**故意**使用 regex 不支持的语法来演示报错信息，所以显式放行
+    // `invalid_regex`——clippy 默认把它当错误，因为绝大多数情况下它就是 bug。
+    #[allow(clippy::invalid_regex)]
     let lookahead = Regex::new(r"\d+(?=px)").unwrap_err();
     println!(
         "    前瞻不支持：{}",
         lookahead.to_string().lines().last().unwrap()
     );
+    #[allow(clippy::invalid_regex)]
     let backref = Regex::new(r"(\w+)\1").unwrap_err();
     println!(
         "    反向引用不支持：{}",

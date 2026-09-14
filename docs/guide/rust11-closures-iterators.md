@@ -176,7 +176,7 @@ let moved: Vec<i32> = numbers.into_iter().collect();   // 拿走
 这是理解迭代器的关键：**适配器只是「记下要做什么」，真正的计算发生在消费的那一刻**。
 
 ```rust
-let values = vec![1, 2, 3];
+let values = [1, 2, 3];
 let iter = values.iter().map(|n| {
     println!("正在计算 {n}");
     n * 2
@@ -204,7 +204,7 @@ let doubled: Vec<i32> = iter.collect();
 ## 11.7 常用适配器
 
 ```rust
-let scores = vec![55, 92, 68, 77, 45, 88];
+let scores = [55, 92, 68, 77, 45, 88];
 
 scores.iter().copied()                    // &i32 -> i32
       .filter(|s| *s >= 60)               // 只保留满足条件的
@@ -264,9 +264,10 @@ scores.iter().copied()                    // &i32 -> i32
 
 ```text
     sum = 31
-    count = 8
+    偶数的个数 = 3
     max / min = Some(9) / Some(1)
-    fold 求积（前四个）= 12
+    product（前四个）= 12
+    fold 拼字符串（前四个）= 3-1-4-1
     有大于 8 的数吗 = true
     全都大于 0 吗 = true
     第一个偶数 = Some(4)
@@ -275,10 +276,25 @@ scores.iter().copied()                    // &i32 -> i32
 
 注意 `max` / `min` / `find` / `position` 返回的都是 `Option`——「空迭代器没有最大值」是真实存在的情况，标准库不 panic，交给你处理（第 6 章的思路）。
 
-`fold` 值得一提：`sum`、`count`、`max` 其实都能用 `fold` 写出来，它是最通用也最灵活的消费器：
+`count` 单独用在一个 `Vec` 上和 `len()` 等价，**它真正有用的场合是接在过滤之后**：
+
+```rust
+nums.iter().filter(|n| **n % 2 == 0).count()   // 偶数的个数 = 3
+```
+
+`fold` 值得一提：`sum`、`product`、`count`、`max` 其实都能用 `fold` 写出来，它是最通用也最灵活的消费器：
 
 ```rust
 nums.iter().fold(0, |acc, n| acc + n)    // 等价于 nums.iter().sum()
+```
+
+上面这是「能用专用消费器替代」的写法——所以本章的演示里求积直接用了 `product()`。
+真正非 `fold` 不可的场合是**累加器不是数字**，比如把前四个数拼成字符串：
+
+```rust
+nums.iter().take(4).fold(String::new(), |acc, n| {
+    if acc.is_empty() { n.to_string() } else { format!("{acc}-{n}") }
+})                                        // "3-1-4-1"
 ```
 
 ## 11.9 `collect` 的目标类型

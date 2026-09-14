@@ -116,7 +116,7 @@ pub fn closures_iterators_demo() {
 
     // 5. 惰性求值
     println!("\n--- 5. 惰性求值：不消费就不干活 ---");
-    let values = vec![1, 2, 3];
+    let values = [1, 2, 3];
     let iter = values.iter().map(|n| {
         println!("        正在计算 {n}");
         n * 2
@@ -127,7 +127,7 @@ pub fn closures_iterators_demo() {
 
     // 6. 常用适配器
     println!("\n--- 6. 常用适配器 ---");
-    let scores = vec![55, 92, 68, 77, 45, 88];
+    let scores = [55, 92, 68, 77, 45, 88];
     let passed: Vec<i32> = scores.iter().copied().filter(|s| *s >= 60).collect();
     println!("    及格分数 = {passed:?}");
     let bumped: Vec<i32> = passed.iter().map(|s| s + 5).collect();
@@ -157,24 +157,38 @@ pub fn closures_iterators_demo() {
     }
     println!();
 
-    let nested = vec![vec![1, 2], vec![3]];
+    let nested = [vec![1, 2], vec![3]];
     let flat: Vec<i32> = nested.iter().flatten().copied().collect();
     println!("    flatten = {flat:?}");
 
     // 7. 常用消费器
     println!("\n--- 7. 常用消费器 ---");
-    let nums = vec![3, 1, 4, 1, 5, 9, 2, 6];
+    let nums = [3, 1, 4, 1, 5, 9, 2, 6];
     println!("    sum = {}", nums.iter().sum::<i32>());
-    println!("    count = {}", nums.iter().count());
+    // count() 单独用在一个 Vec 上和 len() 等价；它真正有用的场合是接在过滤之后
+    println!(
+        "    偶数的个数 = {}",
+        nums.iter().filter(|n| **n % 2 == 0).count()
+    );
     println!(
         "    max / min = {:?} / {:?}",
         nums.iter().max(),
         nums.iter().min()
     );
+    // product() 是「求积」的专用消费器，等价于 fold(1, |acc, n| acc * n)
     println!(
-        "    fold 求积（前四个）= {}",
-        nums.iter().take(4).fold(1, |acc, n| acc * n)
+        "    product（前四个）= {}",
+        nums.iter().take(4).product::<i32>()
     );
+    // fold 的累加器可以是任意类型：这里把它拼成字符串（没有现成的专用消费器）
+    let joined = nums.iter().take(4).fold(String::new(), |acc, n| {
+        if acc.is_empty() {
+            n.to_string()
+        } else {
+            format!("{acc}-{n}")
+        }
+    });
+    println!("    fold 拼字符串（前四个）= {joined}");
     println!("    有大于 8 的数吗 = {}", nums.iter().any(|n| *n > 8));
     println!("    全都大于 0 吗 = {}", nums.iter().all(|n| *n > 0));
     println!("    第一个偶数 = {:?}", nums.iter().find(|n| **n % 2 == 0));

@@ -381,16 +381,15 @@ enum Option<T> {
 
 ```rust
 fn first_even(values: &[i32]) -> Option<i32> {
-    for &value in values {
-        if value % 2 == 0 {
-            return Some(value);
-        }
-    }
-    None
+    values.iter().find(|value| **value % 2 == 0).copied()
 }
 ```
 
 实测 `first_even(&[1, 3, 4, 7]) = Some(4)`、`first_even(&[1, 3, 5]) = None`。
+
+（`find` 和 `copied` 是第 11 章才展开讲的迭代器方法，这里先按人话读：
+在切片里找第一个偶数，找不到就是 `None`。早期版本写的是 `for` 循环加 `return`，
+两者结果一样，但迭代器版本句子更短。）
 
 常见的处理方式：
 
@@ -407,12 +406,17 @@ fn first_even(values: &[i32]) -> Option<i32> {
 标准库很多方法都返回 `Option`，索引类操作尤其明显：
 
 ```rust
-let numbers = vec![10, 20, 30];
-numbers.get(1);    // Some(&20)
+let numbers = [10, 20, 30];
+numbers.get(1);    // Some(&20)：拿到的是引用
 numbers.get(9);    // None，不 panic
 ```
 
-对比一下就明白它的价值：`numbers[9]` 会 panic，`numbers.get(9)` 让你自己决定怎么办。**能用 `get` 就不用下标**，尤其是在下标来自外部输入的时候。
+数组、切片和 `Vec` 都有 `get`，返回的都是 `Option<&T>`。对比一下就明白它的价值：
+`numbers[9]` 会 panic，`numbers.get(9)` 让你自己决定怎么办。**能用 `get` 就不用下标**，
+尤其是在下标来自外部输入的时候。
+
+（演示里 `println!("{:?}", numbers.get(1))` 打印出来是 `Some(20)`——`Debug` 不会把
+引用写成 `&20`，但类型上它确实是 `Option<&i32>`。要拿到值本身可以用 `.copied()`。）
 
 `Option` 也是「Rust 没有 null」的答案：别的语言里 null 值可以出现在任何引用上，调用方得靠文档和运气；Rust 把「可能为空」变成类型 `Option<T>`，不处理 `None` 就用不了里面的值，编译器盯着你。第 8 章会讲另一个枚举 `Result<T, E>`，专门表达「可能失败」。
 

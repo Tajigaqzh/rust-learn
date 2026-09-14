@@ -195,7 +195,9 @@ rust-learn/
 | `src/lib.rs` | 库 | 单元测试 + 文档测试 |
 | `tests/*.rs` | 独立的测试 crate | `cargo test` 时每个文件单独编译运行 |
 
-**我们的项目是纯二进制 crate，没有 `lib.rs`**，所以文档注释里的代码块不会作为文档测试执行（文档测试只对库目标跑）；集成测试也没法 `use rust_learn::...`，只能运行编译出来的程序——`tests/integration.rs` 就是这么做的。
+**第 14 章写到这里的时候，我们的项目还只有二进制目标**，所以文档注释里的代码块不会作为文档测试执行（文档测试只对库目标跑）；集成测试也没有库 API 可用，只能运行编译出来的程序——`tests/integration.rs` 就是这么做的。
+
+> 后来第 25 章为了让 Python / Go 能调用，加了 `src/lib.rs`（`crate-type = ["cdylib", "rlib"]`）。从那时起这个仓库就有了库目标：`cargo test` 会多跑一段 `Doc-tests rust_learn`（目前 0 条），集成测试也能直接 `use rust_learn::multiply;` 调库函数了。本章的集成测试写法保持不变——它验证的是「程序跑起来输出对不对」，这件事仍然只能靠黑盒跑。
 
 `Cargo.toml` 里最简单的形态：
 
@@ -318,14 +320,14 @@ error: functions used as tests can not have any arguments
 
 **集成测试**放在 `tests/` 目录，每个文件会被编译成一个**独立的 crate**，只能使用你提供的**公开 API**——这种限制正是它的价值：它验证「从外部看，这个东西好不好用」。
 
-我们的项目是二进制 crate，没有库 API 可用，于是换个角度：**把编译出来的程序当黑盒**。Cargo 在跑测试时会提供环境变量 `CARGO_BIN_EXE_<二进制名>`，指向刚编译好的可执行文件：
+这个仓库（写本章时）只有二进制目标，集成测试没有库 API 可用，于是换个角度：**把编译出来的程序当黑盒**。Cargo 在跑测试时会提供环境变量 `CARGO_BIN_EXE_<二进制名>`，指向刚编译好的可执行文件——二进制目标后来改名叫 `rust-learn-demo`（原因见第 24 章 24.5），环境变量名跟着变：
 
 ```rust
 use std::process::Command;
 
 #[test]
 fn binary_runs_and_prints_every_chapter() {
-    let output = Command::new(env!("CARGO_BIN_EXE_rust-learn"))
+    let output = Command::new(env!("CARGO_BIN_EXE_rust-learn-demo"))
         .output()
         .expect("运行二进制失败");
 
@@ -555,7 +557,7 @@ use std::process::Command;
 
 #[test]
 fn binary_prints_error_chapter_marker() {
-    let output = Command::new(env!("CARGO_BIN_EXE_rust-learn"))
+    let output = Command::new(env!("CARGO_BIN_EXE_rust-learn-demo"))
         .output()
         .expect("运行二进制失败");
 

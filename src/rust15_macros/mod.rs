@@ -20,11 +20,17 @@ macro_rules! show {
 }
 
 /// 重复匹配：`$(...),+` 表示「一个或多个，用逗号分隔」。
+///
+/// 这个宏**故意**展开成「先建空 `Vec`，再逐个 `push`」：宏生成的是**语句序列**，
+/// 这一点比直接转发给 `vec![...]` 更值得看。clippy 对普通代码会提示
+/// `vec_init_then_push`（别先建空容器再 push），宏体里显式放行——
+/// 注意属性必须写在**宏体内部**：写在 `macro_rules!` 外面不会影响展开处的判定。
 macro_rules! my_vec {
     () => {
         Vec::new()
     };
     ($($element:expr),+ $(,)?) => {{
+        #[allow(clippy::vec_init_then_push)]
         let mut v = Vec::new();
         $( v.push($element); )+
         v
@@ -77,8 +83,12 @@ macro_rules! define_point {
 }
 
 /// 生成语句：`$ty:ty` 匹配一个类型。
+///
+/// 宏只负责声明一个空容器，`push` 写在调用处——同样会撞上
+/// `vec_init_then_push`，含义与上面相同，在宏体里放行。
 macro_rules! make_container {
     ($name:ident, $ty:ty) => {
+        #[allow(clippy::vec_init_then_push)]
         let mut $name: Vec<$ty> = Vec::new();
     };
 }
@@ -97,10 +107,15 @@ pub fn macros_demo() {
 
     println!("\n--- 3. 重复匹配 ---");
     let empty: Vec<i32> = my_vec![];
+    // 下面几行显式放行 vec_init_then_push：警告来自宏内部「先建空 Vec 再 push」
+    // 的展开，属性写在调用处才会生效（写在宏体里不行）。
+    #[allow(clippy::vec_init_then_push)]
     let numbers = my_vec![1, 2, 3];
+    #[allow(clippy::vec_init_then_push)]
+    let trailing = my_vec![1, 2, 3,];
     println!("    my_vec![] = {empty:?}");
     println!("    my_vec![1, 2, 3] = {numbers:?}");
-    println!("    带尾随逗号 my_vec![1, 2, 3,] = {:?}", my_vec![1, 2, 3,]);
+    println!("    带尾随逗号 my_vec![1, 2, 3,] = {trailing:?}");
     println!("    sum_of!(1, 2, 3, 4) = {}", sum_of!(1, 2, 3, 4));
     println!("    sum_of!() = {}", sum_of!());
 
@@ -125,9 +140,14 @@ pub fn macros_demo() {
         point.y,
         point.sum()
     );
-    make_container!(names, String);
-    names.push(String::from("ada"));
-    println!("    make_container! 生成了变量：{names:?}");
+    // 这里用**块级**属性放行：属性加在宏调用语句上会被忽略，
+    // 加在块上才能同时覆盖宏展开里的 `Vec::new()` 和块里的 `push`。
+    #[allow(clippy::vec_init_then_push)]
+    {
+        make_container!(names, String);
+        names.push(String::from("ada"));
+        println!("    make_container! 生成了变量：{names:?}");
+    }
 
     println!("\n--- 6. 标准库的宏也是这么展开的 ---");
     println!("    println!(\"...\")  →  std::io::_print(format_args!(\"...\"))");

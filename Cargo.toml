@@ -10,6 +10,10 @@ chapter24-demo = []
 [lib]
 crate-type = ["cdylib", "rlib"]
 
+[[bin]]
+name = "rust-learn-demo"
+path = "src/main.rs"
+
 [dependencies]
 chrono = "0.4"
 clap = { version = "4", default-features = false, features = ["std", "help", "usage", "error-context", "suggestions"] }

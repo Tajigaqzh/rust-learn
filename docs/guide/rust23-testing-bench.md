@@ -30,29 +30,34 @@ harness = false           # 用 criterion 自己的入口，而不是内置的 b
 
 | 层次 | 位置 | 测什么 | 本仓库现状 |
 | --- | --- | --- | --- |
-| 单元测试 | 被测模块里的 `#[cfg(test)] mod tests` | 单个函数、私有逻辑、边界条件 | 13 个 |
+| 单元测试 | 被测模块里的 `#[cfg(test)] mod tests` | 单个函数、私有逻辑、边界条件 | 52 个（库目标 2 个 + 二进制目标 50 个） |
 | 集成测试 | `tests/*.rs` | 多个部分配合、对外行为 | 6 个（3 个夹具测试 + 3 个二进制冒烟测试） |
 | 文档测试 | `///` 里的代码块 | 示例能不能跑（只对库目标生效） | 本项目是二进制 crate，暂无 |
 
-执行 `cargo test` 的实测输出（节选）：
+执行 `cargo test` 的实测输出（节选，数字随章节增加而变，这里就是当前仓库的结果）：
 
 ```text
-running 13 tests
-test rust14_modules_tests::geometry::tests::private_helper_is_reachable_inside_module ... ok
-test rust23_testing::tests::uptime_label_covers_all_branches ... ok
-test rust23_testing::tests::floats_compare_with_tolerance ... ok
-test rust23_testing::tests::matches_macro_is_good_for_shapes ... ok
-test rust23_testing::tests::division_by_zero_panics - should panic ... ok
-test rust23_testing::tests::tests_can_return_result ... ok
-test result: ok. 13 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out
+running 2 tests      (src/lib.rs：第 25 章的 C ABI 导出函数)
+test tests::multiply_saturates_instead_of_panicking ... ok
+test tests::sum_and_checksum_follow_the_null_and_length_contract ... ok
+test result: ok. 2 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out
 
-running 3 tests
+running 50 tests     (src/main.rs：各章模块里的单元测试)
+test rust14_modules_tests::geometry::tests::area_of_rect_handles_zero ... ok
+test rust23_testing::tests::uptime_label_covers_all_branches ... ok
+test rust25_unsafe_ffi::tests::read_at_covers_every_boundary ... ok
+test rust26_database::tests::transaction_rolls_back_the_whole_batch ... ok
+test rust27_app::tests::service_runs_the_full_flow ... ok
+test rust28_ops::tests::percentile_uses_the_nearest_rank ... ok
+test result: ok. 50 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out
+
+running 3 tests      (tests/fixtures.rs：共享夹具)
 test counts_chars_in_fixture ... ok
 test fixtures_are_isolated_between_tests ... ok
 test fixture_directories_are_cleaned_up ... ok
 test result: ok. 3 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out
 
-running 3 tests
+running 3 tests      (tests/integration.rs：二进制冒烟测试)
 test binary_prints_error_chapter_marker ... ok
 test binary_reports_finish_markers ... ok
 test binary_runs_and_prints_every_chapter ... ok
@@ -225,8 +230,15 @@ fn approx_eq(left: f64, right: f64, epsilon: f64) -> bool {
 ```rust
 let value = Some(42);
 assert!(matches!(value, Some(n) if n > 40));
-assert!(!matches!(value, None));
+assert!(!matches!(value, Some(n) if n > 100));
+
+let outcome: Result<i32, String> = Err(String::from("boom"));
+assert!(matches!(outcome, Err(message) if message.contains("boom")));
 ```
+
+带 guard 的 `matches!` 是最有用的形态：**既看变体，也看里面的值**，
+还能把字段绑出来继续判断。反过来，`matches!(x, None)` 这种「只判断变体」的写法
+会被 clippy 提示改用 `x.is_none()`——同样是 lint 在帮你选更短的表达。
 
 **③ 给 `assert_eq!` 加消息**，失败时能立刻知道是哪个输入出问题：
 
@@ -339,21 +351,26 @@ cargo bench --bench benchmarks           # 只跑指定目标
 cargo bench --bench benchmarks -- --quick  # 快速跑一遍（采样少、结果略粗糙）
 ```
 
-**最后一条的写法值得记住**：`--quick` 要传给 criterion，所以得先指定 `--bench 目标名`。如果直接写 `cargo bench -- --quick`，Cargo 会先把 `--quick` 传给**所有** bench 目标，而二进制目标自带的内置 harness 不认识这个参数，于是报：
+**最后一条的写法值得记住**：`--quick` 要传给 criterion，所以得先指定 `--bench 目标名`。如果直接写 `cargo bench -- --quick`，Cargo 会把 `--quick` 传给**所有** bench 目标，而库目标和二进制目标自带的内置 harness 不认识这个参数，于是报：
 
 ```text
+     Running unittests src\lib.rs (target\release\deps\rust_learn-<hash>.exe)
 error: Unrecognized option: 'quick'
-error: bench failed, to rerun pass `--bin rust-learn`
+error: bench failed, to rerun pass `--lib`
 ```
+
+先失败的是哪个目标，取决于 Cargo 的执行顺序——本节实测报的是 `--lib`，
+如果你的项目里二进制先跑，就会看到 `--bin <名字>`。总之**报错的目标名不是重点，
+「参数被发给了不认识它的 harness」才是**。
 
 输出长这样：
 
 ```text
      Running benches\benchmarks.rs (target\release\deps\benchmarks-....exe)
 求和 1000 个元素/手写循环
-                        time:   [68.865 ns 68.966 ns 69.368 ns]
+                        time:   [77.848 ns 78.247 ns 79.845 ns]
 求和 1000 个元素/迭代器 sum
-                        time:   [82.958 ns 82.963 ns 82.984 ns]
+                        time:   [58.115 ns 58.198 ns 58.219 ns]
 ```
 
 **怎么读这一行**：
@@ -381,20 +398,20 @@ error: bench failed, to rerun pass `--bin rust-learn`
 
 | 对比 | 耗时 | 差距 |
 | --- | --- | --- |
-| 求和 1000 个元素：手写循环 | 68.9 ns | — |
-| 求和 1000 个元素：迭代器 `sum` | 83.0 ns | 慢约 20% |
-| 拼接 100 段字符串：`format!` 反复重建 | 21.6 µs | — |
-| 拼接 100 段字符串：`push_str` 复用缓冲 | 654.6 ns | **快 33 倍** |
-| 查找：`Vec::contains`（1000 个元素） | 145.2 ns | — |
-| 查找：`HashSet::contains` | 8.64 ns | **快 17 倍** |
+| 求和 1000 个元素：手写循环 | 78.2 ns | — |
+| 求和 1000 个元素：迭代器 `sum` | 58.2 ns | 反而快约 25%（同量级） |
+| 拼接 100 段字符串：`format!` 反复重建 | 45.1 µs | — |
+| 拼接 100 段字符串：`push_str` 复用缓冲 | 572.9 ns | **快约 79 倍** |
+| 查找：`Vec::contains`（1000 个元素） | 115.6 ns | — |
+| 查找：`HashSet::contains` | 6.88 ns | **快约 17 倍** |
 
 三条结论，正好代表三种情况：
 
-**① 迭代器和手写循环基本一样快。** 20% 的差距在小到几十纳秒的尺度上很容易受噪声影响，而且**这种差距通常不值得为它牺牲可读性**——这正是第 11 章说的「零成本抽象」：用 `sum()` 写更清楚，性能几乎不变。
+**① 迭代器和手写循环是同一个量级。** 这次迭代器还略快一点（58 ns vs 78 ns），上一次实测则是手写循环快——几十纳秒尺度上，两次运行的差异很容易被噪声和代码细节盖过。结论不是「谁快 20%」，而是**它们的差距不值得为它牺牲可读性**，这正是第 11 章说的「零成本抽象」：用 `sum()` 写更清楚，性能同一水平。
 
-**② 字符串拼接差了 33 倍，值得改。** 原因是算法复杂度的区别：`format!("{result},{part}")` **每次都新建一个 String 并把已有内容全部复制一遍**，100 次拼接就是 O(n²) 的复制；`push_str` 复用同一块缓冲区，是均摊 O(1)。**遇到「循环里反复拼接」就改用 `push_str` / `push`。**
+**② 字符串拼接差了约 79 倍，值得改。** 原因是算法复杂度的区别：`format!("{result},{part}")` **每次都新建一个 String 并把已有内容全部复制一遍**，100 次拼接就是 O(n²) 的复制；`push_str` 复用同一块缓冲区，是均摊 O(1)——数据越多差距越大。**遇到「循环里反复拼接」就改用 `push_str` / `push`。**
 
-**③ 查找差了 17 倍，但要看场景。** `Vec::contains` 是线性扫描（O(n)），`HashSet` 是哈希查找（O(1)）；元素越多差距越大。但**如果只在 10 个元素里查一次，145ns 和 9ns 都没人在意**——真正的问题是「在循环里、对大量数据反复查找」，那时才该换成 `HashSet` / `HashMap`（第 7 章 7.1 的复杂度表在这里有了实测数据）。
+**③ 查找差了约 17 倍，但要看场景。** `Vec::contains` 是线性扫描（O(n)），`HashSet` 是哈希查找（O(1)）；元素越多差距越大。但**如果只在 10 个元素里查一次，116ns 和 7ns 都没人在意**——真正的问题是「在循环里、对大量数据反复查找」，那时才该换成 `HashSet` / `HashMap`（第 7 章 7.1 的复杂度表在这里有了实测数据）。
 
 ## 23.12 什么时候该做基准
 
@@ -554,7 +571,7 @@ fn missing_directory_returns_zero() {
 
 - 读结果看**置信区间**：区间分开了才说明有差异；`--quick` 适合快速看，正式对比用完整采样 + `--save-baseline`。
 
-- 本仓库实测：迭代器与手写循环几乎一样快（不值得为 20% 牺牲可读性）；`format!` 循环拼接比 `push_str` 慢 33 倍（O(n²) 的复制）；`Vec::contains` 比 `HashSet::contains` 慢 17 倍（线性 vs 哈希）——**性能差异要看数量级，优化要有终点**。
+- 本仓库实测：迭代器与手写循环在同一量级（谁快一点会随运行变化，不值得为它牺牲可读性）；`format!` 循环拼接比 `push_str` 慢约 79 倍（O(n²) 的复制）；`Vec::contains` 比 `HashSet::contains` 慢约 17 倍（线性 vs 哈希）——**性能差异要看数量级，优化要有终点**。
 
 - 微基准只用来比较「同一任务的不同写法」，别拿它预测整个程序的性能；真实瓶颈要靠 profile 找。
 

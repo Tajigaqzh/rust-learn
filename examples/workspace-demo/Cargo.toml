@@ -1,0 +1,9 @@
+# 第 24 章的 workspace 示例：一个虚拟清单（virtual manifest）管两个成员 crate。
+# 运行方式：cd examples/workspace-demo && cargo build && cargo test
+#
+# 它和仓库根目录的 rust-learn 包互不影响：根目录执行 cargo run/build 时
+# 不会把这个子目录算进来，只有你进到这一层、或者用 --manifest-path 指定
+# 这里的清单时，它才会参与构建。
+[workspace]
+resolver = "3"
+members = ["core-lib", "cli-bin"]
