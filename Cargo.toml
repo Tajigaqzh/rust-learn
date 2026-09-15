@@ -28,6 +28,9 @@ tracing-subscriber = { version = "0.3", default-features = false, features = ["f
 unicode-segmentation = "1"
 walkdir = "2"
 rusqlite = { version = "0.32", features = ["bundled"] }
+# 第 30 章起真实使用 tokio（此前只是 reqwest 的传递依赖）；
+# 只开需要的 feature，不引入 "full"。
+tokio = { version = "1", features = ["rt-multi-thread", "macros", "time", "sync"] }
 
 [dev-dependencies]
 criterion = "0.8"

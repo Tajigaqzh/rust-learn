@@ -373,7 +373,11 @@ async fn main() {
 | `tokio::spawn` | 把 future 交给调度器，要求 `Send + 'static`，返回 `JoinHandle` |
 | `tokio::time::sleep(...).await` | 向运行时注册一个定时器，`Pending` 之后由 Waker 在超时点唤醒 |
 
-**关于验证的说明**：本章配套代码**只用标准库**（`block_on` 是手写的），因为这台机器访问不了 crates.io，没法下载 tokio 依赖。上面这段 tokio 代码是 tokio 1.x 的标准写法，但没有参与本仓库的编译与运行验证——你在本地新建一个项目、按上面的 `Cargo.toml` 加依赖即可运行。其余所有结论（`async fn` 的惰性、`poll` 的 `Pending`/`Ready`、`block_on` 的原理、阻塞的危害）都由配套代码实测过。
+**关于验证的说明**：本章配套代码**只用标准库**（`block_on` 是手写的），因为写作当时这台机器访问不了 crates.io，没法下载 tokio 依赖。上面这段 tokio 代码是 tokio 1.x 的标准写法，但没有参与本仓库的编译与运行验证——你在本地新建一个项目、按上面的 `Cargo.toml` 加依赖即可运行。其余所有结论（`async fn` 的惰性、`poll` 的 `Pending`/`Ready`、`block_on` 的原理、阻塞的危害）都由配套代码实测过。
+
+> 债已还上：第 30 章（[异步进阶](./rust30-async-advanced)）把 tokio
+> 作为真实依赖引入了仓库（网络通了），`Pin`/`Unpin` 的解释、
+> `tokio::sync`、`select!` 和取消语义都在那一章。
 
 ## 16.11 三个真实报错与警告怎么读
 

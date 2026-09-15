@@ -21,6 +21,8 @@ fn binary_runs_and_prints_every_chapter() {
         "rust10_lifetimes",
         "rust13_concurrency",
         "rust14_modules_tests",
+        "rust29_typesystem",
+        "rust30_async_advanced",
     ] {
         assert!(stdout.contains(marker), "输出里找不到章节标记 {marker}");
     }

@@ -73,6 +73,8 @@ pnpm docs:preview    # 预览构建结果
 | 第 26 章 | 数据库操作 | [rust26-database](docs/guide/rust26-database.md) | `src/rust26_database/` |
 | 第 27 章 | 综合实战项目 | [rust27-app](docs/guide/rust27-app.md) | `src/rust27_app.rs` |
 | 第 28 章 | 部署、监控与性能优化 | [rust28-ops](docs/guide/rust28-ops.md) | `src/rust28_ops.rs`、`benches/` |
+| 第 29 章 | 类型系统进阶 | [rust29-typesystem](docs/guide/rust29-typesystem.md) | `src/rust29_typesystem/` |
+| 第 30 章 | 异步进阶 | [rust30-async-advanced](docs/guide/rust30-async-advanced.md) | `src/rust30_async_advanced/` |
 
 完整路线见[学习路线与章节规划](docs/guide/index.md)。
 

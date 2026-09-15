@@ -43,6 +43,16 @@
 | 第 27 章 | [综合实战项目](./rust27-app) | 分层架构、配置分层、可测试的 CLI、错误类型与退出码、JSON 输出、持久化与测试闭环 | `src/rust27_app.rs` |
 | 第 28 章 | [部署、监控与性能优化](./rust28-ops) | 发布清单、存活/就绪探针、指标与百分位、结构化日志、事务性能对比、运维 runbook | `src/rust28_ops.rs` |
 
+### 进阶专题（第 29–30 章）
+
+这两章是语言进阶主题，编号靠后只是为了不动既有章节；阅读时机由前置章节决定：
+第 29 章读完后置第 9/10 章即可插入，第 30 章接在第 16 章之后。
+
+| 章节 | 主题 | 你会学到 | 配套代码 |
+| --- | --- | --- | --- |
+| 第 29 章 | [类型系统进阶](./rust29-typesystem) | const 泛型与编译期形状检查、const 参数的限制、GAT 借出型迭代器、trait 中的 `impl Trait`（RPITIT）与 `use<>` 捕获、高阶生命周期 `for<'a>` | `src/rust29_typesystem/` |
+| 第 30 章 | [异步进阶](./rust30-async-advanced) | Pin/Unpin 与自引用状态机、tokio 真实依赖与运行时、`tokio::sync`（oneshot/broadcast/watch/mpsc/async Mutex）、`select!` 与 `join!`、取消语义与取消安全性 | `src/rust30_async_advanced/` |
+
 ## 本地跑文档站
 
 ```bash

@@ -26,6 +26,8 @@ mod rust25_unsafe_ffi;
 mod rust26_database;
 mod rust27_app;
 mod rust28_ops;
+mod rust29_typesystem;
+mod rust30_async_advanced;
 
 use rust01_print::print_demo;
 use rust02_variables::variables_demo;
@@ -55,6 +57,8 @@ use rust25_unsafe_ffi::unsafe_ffi_demo;
 use rust26_database::database_demo;
 use rust27_app::task_app_demo;
 use rust28_ops::ops_demo;
+use rust29_typesystem::typesystem_demo;
+use rust30_async_advanced::async_advanced_demo;
 
 fn main() {
     println!("Hello, world!");
@@ -111,4 +115,8 @@ fn main() {
     database_demo();
     task_app_demo();
     ops_demo();
+
+    typesystem_demo();
+
+    async_advanced_demo();
 }

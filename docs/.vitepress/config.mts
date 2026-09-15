@@ -40,6 +40,13 @@ export default defineConfig({
           { text: '第 21 章 · 命令行工具', link: '/guide/rust21-cli' },
           { text: '第 22 章 · 网络与 HTTP', link: '/guide/rust22-network-http' },
           { text: '第 23 章 · 测试进阶与基准', link: '/guide/rust23-testing-bench' },
+          { text: '第 24 章 · Cargo 深入与发布', link: '/guide/rust24-cargo' },
+          { text: '第 25 章 · unsafe 与 FFI', link: '/guide/rust25-unsafe-ffi' },
+          { text: '第 26 章 · 数据库操作', link: '/guide/rust26-database' },
+          { text: '第 27 章 · 综合实战项目', link: '/guide/rust27-app' },
+          { text: '第 28 章 · 部署、监控与性能优化', link: '/guide/rust28-ops' },
+          { text: '第 29 章 · 类型系统进阶', link: '/guide/rust29-typesystem' },
+          { text: '第 30 章 · 异步进阶', link: '/guide/rust30-async-advanced' },
         ],
       },
     ],
@@ -100,6 +107,15 @@ export default defineConfig({
           { text: '第 26 章 · 数据库操作', link: '/guide/rust26-database' },
           { text: '第 27 章 · 综合实战项目', link: '/guide/rust27-app' },
           { text: '第 28 章 · 部署、监控与性能优化', link: '/guide/rust28-ops' },
+        ],
+      },
+      {
+        // 语言/异步进阶主题：编号接续 28，但主题独立于「工程与发布」。
+        // 第 29 章建议读完后置的第 9/10 章插入，第 30 章接第 16 章。
+        text: '进阶专题',
+        items: [
+          { text: '第 29 章 · 类型系统进阶', link: '/guide/rust29-typesystem' },
+          { text: '第 30 章 · 异步进阶', link: '/guide/rust30-async-advanced' },
         ],
       },
     ],
